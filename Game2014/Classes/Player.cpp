@@ -43,9 +43,9 @@ void Player::update(float dt)
 
 void Player::clamp()
 {
-	if (this->getPosition().x <= 0 || this->getPosition().x >= screenSize.width)
+	if (this->getPosition().x - this->getBoundingBox().size.width/2  <= 0 || this->getPosition().x + this->getBoundingBox().size.width/2 >= screenSize.width)
 		velocity->x = -velocity->x;
-	if (this->getPosition().y <= 0 || this->getPosition().y >= screenSize.height)
+	if (this->getPosition().y - this->getBoundingBox().size.height/2  <= 0 || this->getPosition().y + this->getBoundingBox().size.height/2 >= screenSize.height)
 		velocity->y = -velocity->y;
 }
 
