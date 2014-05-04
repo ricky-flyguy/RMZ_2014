@@ -1,3 +1,4 @@
 RMZ Team Members
 
 1. Ricardo Hyde 	- Programmer
+2. Mark Meritt		- Programmer
