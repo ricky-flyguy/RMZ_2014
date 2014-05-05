@@ -74,10 +74,22 @@ bool HelloWorld::init()
 
 
 	Point tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
+    
+    Point backPos = ccp(0, 0);
 
 	player = Player::create("sky_diver.png", &tempPos);
+    
+    bg = Background::create("titlescreen.png", &tempPos);
+    
+    bg->setRotation(90.0f);
+    
+    bg->setScale(2.0f);
+    
+    this->addChild(bg);
 
 	this->addChild(player);
+    
+  
 
 	schedule(schedule_selector(HelloWorld::update));
     
