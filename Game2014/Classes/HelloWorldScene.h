@@ -3,12 +3,18 @@
 
 #include "cocos2d.h"
 #include "Player.h"
+#include "Balloon.h"
+
+using namespace cocos2d;
 
 class HelloWorld : public cocos2d::Layer
 {
 public:
 
 	Player* player;
+	Balloon* balloon;
+
+	LabelTTF* label;
 
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
@@ -17,6 +23,12 @@ public:
     virtual bool init(); 
 
 	virtual void update(float dt);
+
+	void onMouseDown(Event* evt);
+	//void onTouchBegan(Touch* touch, Event* evt);
+
+	EventListenerMouse* mouseListener;
+	EventListenerTouchOneByOne* touchListener;
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);

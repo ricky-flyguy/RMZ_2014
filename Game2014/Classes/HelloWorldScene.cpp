@@ -54,14 +54,14 @@ bool HelloWorld::init()
  //   // add a label shows "Hello World"
  //   // create and initialize a label
  //   
- //   auto label = LabelTTF::create("Hello World", "Arial", 24);
+    label = LabelTTF::create("Hello World", "Arial", 24);
  //   
  //   // position the label on the center of the screen
- //   label->setPosition(Point(origin.x + visibleSize.width/2,
- //                           origin.y + visibleSize.height - label->getContentSize().height));
+    label->setPosition(Point(origin.x + visibleSize.width/2,
+                            origin.y + visibleSize.height - label->getContentSize().height));
 
  //   // add the label as a child to this layer
- //   this->addChild(label, 1);
+    this->addChild(label, 1);
 
  //   // add "HelloWorld" splash screen"
  //   auto sprite = Sprite::create("HelloWorld.png");
@@ -73,16 +73,52 @@ bool HelloWorld::init()
  //   this->addChild(sprite, 0);
 
 
-	Point tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
+	Point tempPos = ccp(visibleSize.width/2, (visibleSize.height - visibleSize.height/4));
 
 	player = Player::create("sky_diver.png", &tempPos);
+	tempPos = ccp(visibleSize.width/3, visibleSize.height/3);
+	balloon = Balloon::create("balloon.png", &tempPos);
+
+	mouseListener = EventListenerMouse::create();
+	//touchListener = EventListenerTouchOneByOne::create();
+
+	mouseListener->onMouseDown = CC_CALLBACK_1(HelloWorld::onMouseDown, this);
+	//touchListener->onTouchBegan = CC_CALLBACK_1(HelloWorld::onTouchBegan, this); 
+
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouseListener, this);
+	//this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 
 	this->addChild(player);
+	this->addChild(balloon);
 
 	schedule(schedule_selector(HelloWorld::update));
     
     return true;
 }
+
+void HelloWorld::onMouseDown(Event* evt)
+{
+	EventMouse* e = (EventMouse*)evt;
+
+	//player->setPosition(player->getPosition().x + 10, player->getPosition().y);
+	
+	Balloon *b = Balloon::create("balloon.png", new Point(e->getCursorX(), Director::getInstance()->getVisibleSize().height - (-e->getCursorY())));
+
+	//label->setString("Pos:(" + std::to_string(e->getCursorX()) + "," + std::to_string(Director::getInstance()->getVisibleSize().height - (-e->getCursorY())) + ")");
+
+	this->addChild(b);
+}
+
+//void HelloWorld::onTouchBegan(Touch* touch, Event* evt)
+//{
+//	EventTouch* e = (EventTouch*)evt;
+//
+//	//Point loc = e->getCurrentTarget()->convertToNodeSpace(touch->getLocation());
+//
+//	//Balloon *b = Balloon::create("balloon.png", new Point(e->get, Director::getInstance()->getVisibleSize().height - (-e->getCursorY())));
+//
+//
+//}
 
 void HelloWorld::update(float dt)
 {
