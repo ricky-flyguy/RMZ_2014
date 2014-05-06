@@ -72,7 +72,6 @@ bool HelloWorld::init()
  //   // add the sprite as a child to this layer
  //   this->addChild(sprite, 0);
 
-
 	Point tempPos = ccp(visibleSize.width/2, (visibleSize.height - visibleSize.height/4));
 
 	player = Player::create("sky_diver.png", &tempPos);
@@ -90,6 +89,17 @@ bool HelloWorld::init()
 
 	this->addChild(player);
 	this->addChild(balloon);
+
+	player = Player::create("sky_diver.png", &tempPos);    
+
+	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
+    bg = Background::create("titlescreen.png", &tempPos);
+    
+    bg->setRotation(90.0f);    
+    bg->setScale(2.0f);
+
+    this->addChild(bg);
+	this->addChild(player);
 
 	schedule(schedule_selector(HelloWorld::update));
     

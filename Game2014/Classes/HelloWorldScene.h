@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "Player.h"
 #include "Balloon.h"
+#include "Background.h"
 
 using namespace cocos2d;
 
@@ -15,6 +16,8 @@ public:
 	Balloon* balloon;
 
 	LabelTTF* label;
+    
+    Background* bg;
 
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
