@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Balloon.h"
 #include "Background.h"
+#include "MainMenu.h"
 
 using namespace cocos2d;
 

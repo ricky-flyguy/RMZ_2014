@@ -28,10 +28,15 @@ Background* Background::create(const std::string &filename, Point* pos)
         bg->autorelease();
         bg->setPosition(*pos);
         
+        bg->setRotation(90.0f);
+        bg->setScale(2.0f);
+        
         return bg;
     }
     
     CC_SAFE_DELETE(bg);
+    
+    return NULL;
 }
 
 Background::~Background(void)

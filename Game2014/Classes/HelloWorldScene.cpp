@@ -95,8 +95,7 @@ bool HelloWorld::init()
 	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
     bg = Background::create("titlescreen.png", &tempPos);
     
-    bg->setRotation(90.0f);    
-    bg->setScale(2.0f);
+ 
 
     this->addChild(bg);
 	this->addChild(player);
