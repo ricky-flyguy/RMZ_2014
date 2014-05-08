@@ -6,6 +6,8 @@
 #include "Balloon.h"
 #include "Background.h"
 #include "PullIndicator.h"
+#include "MainMenu.h"
+#include "Civilian.h"
 
 using namespace cocos2d;
 
@@ -15,6 +17,8 @@ public:
 
 	Player* player;
 	Balloon* balloon;
+	
+	Civilian* civCivilian;
 
 	LabelTTF* label;
     
