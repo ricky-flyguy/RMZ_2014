@@ -13,6 +13,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 			   ../../Classes/Balloon.cpp\
 			   ../../Classes/Background.cpp\
 			   ../../Classes/PullIndicator.cpp\
+			   ../../Classes/MainMenu.cpp\
+			   ../../Classes/Civilian.cpp\
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 

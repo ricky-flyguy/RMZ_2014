@@ -239,7 +239,8 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/__/__/Classes/HelloWorldScene.o: 
  jni/../../Classes/Player.h jni/../../Classes/Balloon.h \
  jni/../../Classes/Background.h \
  B:/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
- jni/../../Classes/PullIndicator.h
+ jni/../../Classes/PullIndicator.h jni/../../Classes/MainMenu.h \
+ jni/../../Classes/Civilian.h
 
 jni/../../Classes/HelloWorldScene.h:
 
@@ -722,3 +723,7 @@ jni/../../Classes/Background.h:
 B:/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
 
 jni/../../Classes/PullIndicator.h:
+
+jni/../../Classes/MainMenu.h:
+
+jni/../../Classes/Civilian.h:
