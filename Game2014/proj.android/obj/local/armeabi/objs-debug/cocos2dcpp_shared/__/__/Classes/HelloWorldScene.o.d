@@ -236,7 +236,10 @@ obj/local/armeabi/objs-debug/cocos2dcpp_shared/__/__/Classes/HelloWorldScene.o: 
  C:\Users\Ricardo\Desktop\RMZREPO\Game2014\proj.android\../cocos2d/cocos/2d/../deprecated/CCBool.h \
  C:\Users\Ricardo\Desktop\RMZREPO\Game2014\proj.android\../cocos2d/cocos/2d/../deprecated/CCNotificationCenter.h \
  C:\Users\Ricardo\Desktop\RMZREPO\Game2014\proj.android\../cocos2d/cocos/2d/../deprecated/CCDeprecated.h \
- jni/../../Classes/Player.h
+ jni/../../Classes/Player.h jni/../../Classes/Balloon.h \
+ jni/../../Classes/Background.h \
+ B:/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
+ jni/../../Classes/PullIndicator.h
 
 jni/../../Classes/HelloWorldScene.h:
 
@@ -711,3 +714,11 @@ C:\Users\Ricardo\Desktop\RMZREPO\Game2014\proj.android\../cocos2d/cocos/2d/../de
 C:\Users\Ricardo\Desktop\RMZREPO\Game2014\proj.android\../cocos2d/cocos/2d/../deprecated/CCDeprecated.h:
 
 jni/../../Classes/Player.h:
+
+jni/../../Classes/Balloon.h:
+
+jni/../../Classes/Background.h:
+
+B:/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
+
+jni/../../Classes/PullIndicator.h:

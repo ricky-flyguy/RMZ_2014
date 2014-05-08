@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Balloon.h"
 #include "Background.h"
+#include "PullIndicator.h"
 
 using namespace cocos2d;
 
@@ -27,10 +28,6 @@ public:
 
 	virtual void update(float dt);
 
-	void onMouseDown(Event* evt);
-	//void onTouchBegan(Touch* touch, Event* evt);
-
-	EventListenerMouse* mouseListener;
 	EventListenerTouchOneByOne* touchListener;
     
     // a selector callback

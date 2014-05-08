@@ -2,6 +2,8 @@
 
 USING_NS_CC;
 
+#define COCOS2D_DEBUG 1
+
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
@@ -78,63 +80,65 @@ bool HelloWorld::init()
 	tempPos = ccp(visibleSize.width/3, visibleSize.height/3);
 	balloon = Balloon::create("balloon.png", &tempPos);
 
-	mouseListener = EventListenerMouse::create();
-	//touchListener = EventListenerTouchOneByOne::create();
+	touchListener = EventListenerTouchOneByOne::create();
 
-	mouseListener->onMouseDown = CC_CALLBACK_1(HelloWorld::onMouseDown, this);
-	//touchListener->onTouchBegan = CC_CALLBACK_1(HelloWorld::onTouchBegan, this); 
+	touchListener->onTouchBegan = [&](Touch* touch, Event* evt) // Explination: http://tinyurl.com/mu69n35
+	{
+		EventTouch* e = (EventTouch*)evt;
 
-	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(mouseListener, this);
-	//this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+		Point loc = e->getCurrentTarget()->convertToNodeSpace(touch->getLocation());
 
-	this->addChild(player);
-	this->addChild(balloon);
+		//Balloon *b = Balloon::create("balloon.png", &loc);
 
-	player = Player::create("sky_diver.png", &tempPos);    
+		//this->addChild(b);
+		return true;
+	};
 
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+
+	player = Player::create("sky_diver.png", &tempPos); 
 	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
-    bg = Background::create("titlescreen.png", &tempPos);
+    bg = Background::create("sky.png", &tempPos);
     
     bg->setRotation(90.0f);    
     bg->setScale(2.0f);
 
+	Sprite* apt = Sprite::create("apartment.png");
+
+
+	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
+
+	PullIndicator* pull = PullIndicator::create(&tempPos);
+
+	DrawNode* c = DrawNode::create();
+
+	for (float i = 0; i < (2 * M_PI); i += 0.3)
+	{
+		c->drawSegment(pull->getPosition(), Point(pull->getPosition().x + pull->radius * cos(i), pull->getPosition().y +  pull->radius * sin(i)),  pull->radius, Color4F(0.0f, 0.0f, 0.5f, 1.0f));
+	}
+
+
+	apt->setScale(.5f);
+	tempPos = ccp(visibleSize.width/2, visibleSize.height/2.5f);
+	apt->setPosition(tempPos);
+
     this->addChild(bg);
+	//this->addChild(apt);
+	this->addChild(balloon);
 	this->addChild(player);
+	this->addChild(c);
+	this->addChild(pull);
 
 	schedule(schedule_selector(HelloWorld::update));
     
     return true;
 }
 
-void HelloWorld::onMouseDown(Event* evt)
-{
-	EventMouse* e = (EventMouse*)evt;
-
-	//player->setPosition(player->getPosition().x + 10, player->getPosition().y);
-	
-	Balloon *b = Balloon::create("balloon.png", new Point(e->getCursorX(), Director::getInstance()->getVisibleSize().height - (-e->getCursorY())));
-
-	//label->setString("Pos:(" + std::to_string(e->getCursorX()) + "," + std::to_string(Director::getInstance()->getVisibleSize().height - (-e->getCursorY())) + ")");
-
-	this->addChild(b);
-}
-
-//void HelloWorld::onTouchBegan(Touch* touch, Event* evt)
-//{
-//	EventTouch* e = (EventTouch*)evt;
-//
-//	//Point loc = e->getCurrentTarget()->convertToNodeSpace(touch->getLocation());
-//
-//	//Balloon *b = Balloon::create("balloon.png", new Point(e->get, Director::getInstance()->getVisibleSize().height - (-e->getCursorY())));
-//
-//
-//}
-
 void HelloWorld::update(float dt)
 {
 	player->update(dt);
+	CCLog("hi");
 }
-
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {

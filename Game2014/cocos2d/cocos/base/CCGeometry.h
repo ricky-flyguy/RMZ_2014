@@ -160,6 +160,8 @@ public:
      */
     bool fuzzyEquals(const Point& target, float variance) const;
 
+	static Point* clampMagnitude(Point* p, float toMag);
+
     /** Calculates distance between point an origin
      @return float
      @since v2.1.4
