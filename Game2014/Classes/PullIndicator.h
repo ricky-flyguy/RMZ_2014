@@ -2,6 +2,7 @@
 #define _PULLINDICATOR_H
 
 #include "cocos2d.h"
+#include "RMZHelper.h"
 
 using namespace cocos2d;
 
@@ -20,6 +21,8 @@ private:
 public:
 	
 	float radius;
+
+	Sprite* arrow;
 
 	static PullIndicator* create(Point* pos);
 	virtual void update(float dt);	

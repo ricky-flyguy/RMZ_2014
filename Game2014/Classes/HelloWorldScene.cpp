@@ -108,7 +108,7 @@ bool HelloWorld::init()
 
 	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
 
-	PullIndicator* pull = PullIndicator::create(&tempPos);
+	pull = PullIndicator::create(&tempPos);
 
 	DrawNode* c = DrawNode::create();
 
@@ -128,7 +128,8 @@ bool HelloWorld::init()
 	this->addChild(player);
 	this->addChild(c);
 	this->addChild(pull);
-	this->addChild(civCivilian);
+	this->addChild(pull->arrow);
+	//this->addChild(civCivilian);
 
 	schedule(schedule_selector(HelloWorld::update));
     
@@ -138,7 +139,7 @@ bool HelloWorld::init()
 void HelloWorld::update(float dt)
 {
 	player->update(dt);
-	CCLog("hi");
+	//CCLog("Pull Pos: (%f, %f)", pull->getPosition().x, pull->getPosition().y);
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)

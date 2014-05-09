@@ -8,6 +8,7 @@
 #include "PullIndicator.h"
 #include "MainMenu.h"
 #include "Civilian.h"
+#include "RMZHelper.h"
 
 using namespace cocos2d;
 
@@ -17,7 +18,7 @@ public:
 
 	Player* player;
 	Balloon* balloon;
-	
+	PullIndicator* pull;
 	Civilian* civCivilian;
 
 	LabelTTF* label;

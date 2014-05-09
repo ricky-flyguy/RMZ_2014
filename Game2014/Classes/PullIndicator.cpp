@@ -24,6 +24,9 @@ bool PullIndicator::init(Point* pos)
 
 		this->_pivot = *pos;
 
+		this->arrow = Sprite::create("arrow.png");
+		this->arrow->setScale(0.1f);
+
 		this->input();
 
 		return true;
@@ -64,11 +67,46 @@ void PullIndicator::input()
 		{
 			EventTouch* e = (EventTouch*) evt;
 
-			this->_offset = touch->getLocation() - this->_pivot;
-			
-			if (this->_offset.getLength() > (this->radius *2))
+			float maxDist = this->radius * 5; //300
+			float prcnt;
+			Point* p = new Point();
+
+			this->_offset = (touch->getLocation() - this->_pivot);
+
+			if(this->_offset.getLength() >= maxDist)
+			{
+				prcnt = this->_offset.getLength()/maxDist;
 				this->setPosition(*Point::clampMagnitude(&this->_offset, 50) + this->_pivot);
-			else this->setPosition(touch->getLocation());
+				*p = ccp(-this->_offset.x, -this->_offset.y);
+				this->arrow->setPosition(*Point::clampMagnitude(p, 50) + this->_pivot);
+				
+				if (this->_offset.x <= 0)
+					this->arrow->setRotation(RMZHelper::calculateAngle(_pivot, touch->getLocation()));
+				else
+					this->arrow->setRotation(-RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
+				//free(&temp); // Possible mem leak!
+			}
+			else if (this->_offset.getLength() < maxDist)
+			{
+				prcnt = this->_offset.getLength()/maxDist;
+				this->setPosition(*Point::clampMagnitude(&this->_offset, 50 * prcnt) + this->_pivot);
+				*p = ccp(-this->_offset.x, -this->_offset.y);
+				this->arrow->setPosition(*Point::clampMagnitude(p, 50 * prcnt) + this->_pivot);
+				
+				if (this->_offset.x <= 0)
+					this->arrow->setRotation(RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
+				else
+					this->arrow->setRotation(-RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
+				//free(&temp); // Possible mem leak!
+			}
+
+			//free(e);
+			//free(p);
+		};
+
+		this->touchListener->onTouchEnded = [&](Touch* touch, Event* evt)
+		{
+
 		};
 
 		this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
