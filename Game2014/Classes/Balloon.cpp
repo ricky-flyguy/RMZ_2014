@@ -29,7 +29,7 @@ Balloon* Balloon::create(Point* pos)
 
 		// CHANGE TO A DEFINED NUMBER AFTER
 		b->setTag(0);
-		auto body = PhysicsBody::createCircle(b->getBoundingBox().size.width/2);
+		auto body = PhysicsBody::createCircle(b->getBoundingBox().size.width/2.5f);
 		body->setMass(1);
 		body->setDynamic(true);
 		b->setPhysicsBody(body);
@@ -65,7 +65,7 @@ Balloon* Balloon::createWithForce(Point* pos, Point* force)
 
 		// CHANGE TO A DEFINED NUMBER AFTER
 		b->setTag(0);
-		auto body = PhysicsBody::createCircle(b->getBoundingBox().size.width/2);
+		auto body = PhysicsBody::createCircle(b->getBoundingBox().size.width/2.5f);
 		body->setMass(1);
 		body->setDynamic(true);
 		b->setPhysicsBody(body);		

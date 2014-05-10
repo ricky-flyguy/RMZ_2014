@@ -9,6 +9,7 @@ Scene* HelloWorld::createScene()
     // 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
 	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	scene->getPhysicsWorld()->setSpeed(1.5f);
     
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create();
