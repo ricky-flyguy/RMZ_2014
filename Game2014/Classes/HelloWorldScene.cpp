@@ -121,7 +121,7 @@ bool HelloWorld::init()
     
 	Sprite* apt = Sprite::create("apartment.png");
 
-	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
+	tempPos = ccp(visibleSize.width/2, visibleSize.height - visibleSize.height/4);
 
 	pull = PullIndicator::create(&tempPos);
 
@@ -129,7 +129,7 @@ bool HelloWorld::init()
 
 	for (float i = 0; i < (2 * M_PI); i += 0.3)
 	{
-		c->drawSegment(pull->getPosition(), Point(pull->getPosition().x + pull->radius * cos(i), pull->getPosition().y +  pull->radius * sin(i)),  pull->radius, Color4F(0.0f, 0.0f, 0.5f, 1.0f));
+		c->drawSegment(pull->getPosition(), Point(pull->getPosition().x + pull->radius * cos(i), pull->getPosition().y +  pull->radius * sin(i)),  pull->radius, Color4F(0.0f, 0.0f, 0.5f, 0.2f));
 	}
 
 
@@ -161,7 +161,7 @@ void HelloWorld::addBalloon(Point* pos, Point* force)
 {
 	Balloon* b = Balloon::createWithForce(pos, force);
 
-	Director::getInstance()->getRunningScene()->addChild(b);
+	Director::getInstance()->getRunningScene()->addChild(b, 100);
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)

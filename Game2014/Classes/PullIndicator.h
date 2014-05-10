@@ -13,6 +13,7 @@ private:
 	Point _pivot;
 	Point _offset;
 	Point* p; // force
+	float prcnt;
 
 	EventListenerTouchOneByOne* touchListener;
 

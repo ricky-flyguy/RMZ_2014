@@ -4,7 +4,7 @@
 PullIndicator::PullIndicator()
 {
 	screenSize = Director::getInstance()->getVisibleSize();
-	this->radius = 50;
+	this->radius = 25;
 }
 
 PullIndicator::PullIndicator(Point* pos)
@@ -21,7 +21,7 @@ bool PullIndicator::init(Point* pos)
 	
 		this->setPosition(*pos);
 		
-		this->setScale(0.25f);
+		this->setScale(0.1f);
 
 		this->_pivot = *pos;
 
@@ -58,63 +58,66 @@ void PullIndicator::input()
 	p = new Point(); // force
 
 
-		this->touchListener->onTouchBegan = [&](Touch* touch, Event* evt)
+	this->touchListener->onTouchBegan = [&](Touch* touch, Event* evt)
+	{
+		EventTouch* e = (EventTouch*) evt;
+
+		this->setPosition(touch->getLocation());
+
+		return true;
+	};
+
+	this->touchListener->onTouchMoved = [&](Touch* touch, Event* evt)
+	{
+		EventTouch* e = (EventTouch*) evt;
+
+		float maxDist = this->radius * 9; //200
+
+		this->_offset = (touch->getLocation() - this->_pivot);
+
+		if(this->_offset.getLength() >= maxDist)
 		{
-			EventTouch* e = (EventTouch*) evt;
+			prcnt = 1;
+			this->setPosition(*Point::clampMagnitude(&this->_offset, this->radius) + this->_pivot);
+			*p = ccp(-this->_offset.x, -this->_offset.y);
+			
+			this->arrow->setPosition(*Point::clampMagnitude(p, this->radius) + this->_pivot);
+			p = Point::clampMagnitude(p, this->radius); 
 
-			this->setPosition(touch->getLocation());
-
-			return true;
-		};
-
-		this->touchListener->onTouchMoved = [&](Touch* touch, Event* evt)
+			if (this->_offset.x <= 0)
+				this->arrow->setRotation(RMZHelper::calculateAngle(_pivot, touch->getLocation()));
+			else
+				this->arrow->setRotation(-RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
+			//free(&temp); // Possible mem leak!
+		}
+		else if (this->_offset.getLength() < maxDist)
 		{
-			EventTouch* e = (EventTouch*) evt;
+			prcnt = this->_offset.getLength()/maxDist;
+			this->setPosition(*Point::clampMagnitude(&this->_offset, this->radius * prcnt) + this->_pivot);
+			*p = ccp(-this->_offset.x, -this->_offset.y);
+			
+			this->arrow->setPosition(*Point::clampMagnitude(p, this->radius * prcnt) + this->_pivot);
+			p = Point::clampMagnitude(p, this->radius * prcnt);
 
-			float maxDist = this->radius * 5; //300
-			float prcnt;
+			if (this->_offset.x <= 0)
+				this->arrow->setRotation(RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
+			else
+				this->arrow->setRotation(-RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
+			//free(&temp); // Possible mem leak!
+		}
 
-			this->_offset = (touch->getLocation() - this->_pivot);
+		//free(e);
+		//CC_SAFE_DELETE(p);
+		//CC_SAFE_DELETE(e);
+	};
 
-			if(this->_offset.getLength() >= maxDist)
-			{
-				prcnt = this->_offset.getLength()/maxDist;
-				this->setPosition(*Point::clampMagnitude(&this->_offset, 50) + this->_pivot);
-				*p = ccp(-this->_offset.x, -this->_offset.y);
-				this->arrow->setPosition(*Point::clampMagnitude(p, 50) + this->_pivot);
-				
-				if (this->_offset.x <= 0)
-					this->arrow->setRotation(RMZHelper::calculateAngle(_pivot, touch->getLocation()));
-				else
-					this->arrow->setRotation(-RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
-				//free(&temp); // Possible mem leak!
-			}
-			else if (this->_offset.getLength() < maxDist)
-			{
-				prcnt = this->_offset.getLength()/maxDist;
-				this->setPosition(*Point::clampMagnitude(&this->_offset, 50 * prcnt) + this->_pivot);
-				*p = ccp(-this->_offset.x, -this->_offset.y);
-				this->arrow->setPosition(*Point::clampMagnitude(p, 50 * prcnt) + this->_pivot);
+	this->touchListener->onTouchEnded = [&](Touch* touch, Event* evt)
+	{
+		*p = Point(p->x * 10, p->y * 10);
+		HelloWorld::addBalloon(&this->_pivot, p);
+	};
 
-
-				if (this->_offset.x <= 0)
-					this->arrow->setRotation(RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
-				else
-					this->arrow->setRotation(-RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
-				//free(&temp); // Possible mem leak!
-			}
-
-			//free(e);
-			//CC_SAFE_DELETE(p);
-			//CC_SAFE_DELETE(e);
-		};
-
-		this->touchListener->onTouchEnded = [&](Touch* touch, Event* evt)
-		{
-			HelloWorld::addBalloon(&this->_pivot, p);
-		};
-
-		this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
 
 void PullIndicator::update(float dt)
