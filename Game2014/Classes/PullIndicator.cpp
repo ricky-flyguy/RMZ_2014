@@ -1,4 +1,5 @@
 #include "PullIndicator.h"
+#include "HelloWorldScene.h"
 
 PullIndicator::PullIndicator()
 {
@@ -25,7 +26,7 @@ bool PullIndicator::init(Point* pos)
 		this->_pivot = *pos;
 
 		this->arrow = Sprite::create("arrow.png");
-		this->arrow->setScale(0.1f);
+		this->arrow->setScale(0.05f);
 
 		this->input();
 
@@ -41,6 +42,7 @@ PullIndicator* PullIndicator::create(Point* pos)
 
 	if (p && p->init(pos))
 	{
+		//p->helloWrld = *world;
 		return p;
 	}
 
@@ -52,7 +54,9 @@ PullIndicator* PullIndicator::create(Point* pos)
 void PullIndicator::input()
 {
 	this->touchListener = EventListenerTouchOneByOne::create();
-		this->touchListener->setSwallowTouches(true);
+	//this->touchListener->setSwallowTouches(true);
+	p = new Point(); // force
+
 
 		this->touchListener->onTouchBegan = [&](Touch* touch, Event* evt)
 		{
@@ -69,7 +73,6 @@ void PullIndicator::input()
 
 			float maxDist = this->radius * 5; //300
 			float prcnt;
-			Point* p = new Point();
 
 			this->_offset = (touch->getLocation() - this->_pivot);
 
@@ -92,7 +95,8 @@ void PullIndicator::input()
 				this->setPosition(*Point::clampMagnitude(&this->_offset, 50 * prcnt) + this->_pivot);
 				*p = ccp(-this->_offset.x, -this->_offset.y);
 				this->arrow->setPosition(*Point::clampMagnitude(p, 50 * prcnt) + this->_pivot);
-				
+
+
 				if (this->_offset.x <= 0)
 					this->arrow->setRotation(RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));
 				else
@@ -101,12 +105,13 @@ void PullIndicator::input()
 			}
 
 			//free(e);
-			//free(p);
+			//CC_SAFE_DELETE(p);
+			//CC_SAFE_DELETE(e);
 		};
 
 		this->touchListener->onTouchEnded = [&](Touch* touch, Event* evt)
 		{
-
+			HelloWorld::addBalloon(&this->_pivot, p);
 		};
 
 		this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);

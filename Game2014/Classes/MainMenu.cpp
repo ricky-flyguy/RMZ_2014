@@ -64,7 +64,7 @@ bool MainMenu::init()
 
 void MainMenu::onPlay(Object* sender)
 {
-    Director::getInstance()->replaceScene(TransitionFade::create(0.9f, HelloWorld::createScene()));
+	Director::getInstance()->replaceScene(TransitionFade::create(0.9f, HelloWorld::createScene()));
 }
 
 void MainMenu::onOptions(Object* sender)

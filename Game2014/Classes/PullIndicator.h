@@ -12,6 +12,7 @@ private:
 	Size screenSize;
 	Point _pivot;
 	Point _offset;
+	Point* p; // force
 
 	EventListenerTouchOneByOne* touchListener;
 

@@ -11,11 +11,15 @@ private:
 	Point* velocity;
 	Size screenSize;
 	float gravity;
+	void input();
 
 public:
 
-	static Balloon* create(const std::string &filename, Point* pos);
+	static Balloon* create(Point* pos);
+	static Balloon* createWithForce(Point* pos, Point* force);
 	virtual void update(float dt);
+
+	bool onContactBegin(const PhysicsContact& contact);
 	bool init();
 
 	Balloon(void);

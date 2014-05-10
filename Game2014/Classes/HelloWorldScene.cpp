@@ -7,13 +7,18 @@ USING_NS_CC;
 Scene* HelloWorld::createScene()
 {
     // 'scene' is an autorelease object
-    auto scene = Scene::create();
+	auto scene = Scene::createWithPhysics();
+	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
     
     // 'layer' is an autorelease object
     auto layer = HelloWorld::create();
+	layer->setPhyWorld(scene->getPhysicsWorld());
 
     // add layer as a child to scene
     scene->addChild(layer);
+
+	// To get current scene
+	//Director::getInstance()->getRunningScene();
 
     // return the scene
     return scene;
@@ -29,7 +34,7 @@ bool HelloWorld::init()
         return false;
     }
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
@@ -74,11 +79,18 @@ bool HelloWorld::init()
  //   // add the sprite as a child to this layer
  //   this->addChild(sprite, 0);
 
+	auto body = PhysicsBody::createEdgeBox(visibleSize, PHYSICSBODY_MATERIAL_DEFAULT, 5);
+	auto node = Node::create();
+	node->setPosition(Point(visibleSize.width/2, visibleSize.height/2));
+	node->setPhysicsBody(body);
+	this->addChild(node);
+
+
 	Point tempPos = ccp(visibleSize.width/2, (visibleSize.height - visibleSize.height/4));
 
 	//player = Player::create("sky_diver.png", &tempPos);
 	tempPos = ccp(visibleSize.width/3, visibleSize.height/3);
-	balloon = Balloon::create("balloon.png", &tempPos);
+	balloon = Balloon::create(&tempPos);
 	tempPos = ccp(visibleSize.width / 2, visibleSize.height / 2);
 	//civCivilian = Civilian::create("sky_diver.png", 20, &tempPos);
 
@@ -90,12 +102,15 @@ bool HelloWorld::init()
 
 		Point loc = e->getCurrentTarget()->convertToNodeSpace(touch->getLocation());
 
+		//Balloon *b = Balloon::createWithForce(&loc, &loc);
 		//Balloon *b = Balloon::create("balloon.png", &loc);
+		//b->getPhysicsBody()->applyImpulse(Point(200, 10));
 
 		//this->addChild(b);
+
 		return true;
 	};
-
+	
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 
 	player = Player::create("sky_diver.png", &tempPos);    
@@ -140,6 +155,13 @@ void HelloWorld::update(float dt)
 {
 	player->update(dt);
 	//CCLog("Pull Pos: (%f, %f)", pull->getPosition().x, pull->getPosition().y);
+}
+
+void HelloWorld::addBalloon(Point* pos, Point* force)
+{
+	Balloon* b = Balloon::createWithForce(pos, force);
+
+	Director::getInstance()->getRunningScene()->addChild(b);
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
