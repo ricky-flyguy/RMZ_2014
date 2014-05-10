@@ -2,6 +2,7 @@
 #define _PULLINDICATOR_H
 
 #include "cocos2d.h"
+#include "RMZHelper.h"
 
 using namespace cocos2d;
 
@@ -11,6 +12,8 @@ private:
 	Size screenSize;
 	Point _pivot;
 	Point _offset;
+	Point* p; // force
+	float prcnt;
 
 	EventListenerTouchOneByOne* touchListener;
 
@@ -20,6 +23,8 @@ private:
 public:
 	
 	float radius;
+
+	Sprite* arrow;
 
 	static PullIndicator* create(Point* pos);
 	virtual void update(float dt);	

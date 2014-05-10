@@ -192,28 +192,14 @@ Point* Point::clampMagnitude(Point* p, float toMag)
 {
 	// Added by Ricardo Hyde
 
-	//float fromMag = p->getLength();
 
-	//if (fromMag <= toMag) return p;
+	Point* temp = (Point*)malloc(sizeof(Point));
+	*temp = p->normalize();
+	//CCLOG("Normal: (%f, %f)", t.x, t.y);
+	temp->setPoint((toMag*2) * temp->x, (toMag*2) * temp->y);
+	//("Normal: (%f, %f)", temp->x, temp->y);
 
-	////fromMag/toMag gets the amount of times fromMag is larger than toMag e.g (1.3x)
-	//float a = fromMag/toMag;
-
-	//// toMag/ the amout received above
-	//float b = toMag/a;
-
-	//
-	//if (b <= 1000 && b > 100) b = b/1000;	// if magnitude is <= 1000  divide by 1000.
-	//else if (b <= 100 && b > 10) b = b/100;	// if magnitude is <= 100  divide by 100.
-	//else if (b <= 10) b = b/10;	// if magnitude is <= 10  divide by 10.
-
-	//p->x = p->x * b;
-	//p->y = p->y * b;
-
-	Point temp = p->normalize();
-	temp.setPoint((toMag*2) * temp.x, (toMag*2) * temp.y);
-
-	return &temp;
+	return temp;
 }
 
 bool Point::isLineIntersect(const Point& A, const Point& B,
