@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
-
+#import "BannerViewController.h"
 @class RootViewController;
 
 @interface AppController : NSObject <UIApplicationDelegate> {

@@ -215,7 +215,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/MainMenu.o: \
  /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCNotificationCenter.h \
  /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCDeprecated.h \
  jni/../../Classes/HelloWorldScene.h jni/../../Classes/Player.h \
- jni/../../Classes/Balloon.h jni/../../Classes/Background.h
+ jni/../../Classes/Balloon.h jni/../../Classes/Background.h \
+ jni/../../Classes/PullIndicator.h jni/../../Classes/Civilian.h
 
 jni/../../Classes/MainMenu.h:
 
@@ -654,3 +655,7 @@ jni/../../Classes/Player.h:
 jni/../../Classes/Balloon.h:
 
 jni/../../Classes/Background.h:
+
+jni/../../Classes/PullIndicator.h:
+
+jni/../../Classes/Civilian.h:
