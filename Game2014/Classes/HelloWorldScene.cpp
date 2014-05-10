@@ -92,7 +92,6 @@ bool HelloWorld::init()
 	tempPos = ccp(visibleSize.width/3, visibleSize.height/3);
 	balloon = Balloon::create(&tempPos);
 	tempPos = ccp(visibleSize.width / 2, visibleSize.height / 2);
-	//civCivilian = Civilian::create("sky_diver.png", 20, &tempPos);
 
 	touchListener = EventListenerTouchOneByOne::create();
 
@@ -113,7 +112,9 @@ bool HelloWorld::init()
 	
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 
-	player = Player::create("sky_diver.png", &tempPos);    
+	player = Player::create("sky_diver.png", &tempPos); 
+
+	tempPos = ccp(50, visibleSize.height/6);
 	civCivilian = Civilian::create("sky_diver.png", 20, &tempPos);
 
 	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
@@ -144,7 +145,7 @@ bool HelloWorld::init()
 	this->addChild(c);
 	this->addChild(pull);
 	this->addChild(pull->arrow);
-	//this->addChild(civCivilian);
+	this->addChild(civCivilian);
 
 	schedule(schedule_selector(HelloWorld::update));
     
