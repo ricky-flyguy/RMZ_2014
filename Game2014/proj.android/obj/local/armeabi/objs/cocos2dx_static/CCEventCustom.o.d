@@ -1,80 +1,80 @@
 obj/local/armeabi/objs/cocos2dx_static/CCEventCustom.o: \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/CCEventCustom.cpp \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/CCEventCustom.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/CCEvent.h \
- C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/string \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCRef.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformMacros.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccConfig.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformConfig.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformConfig.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/platform/android/CCPlatformDefine.h \
- C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/android/log.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformMacros.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccMacros.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCConsole.h \
- C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/select.h \
- C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/thread \
- C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector \
- C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/map \
- C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/mutex \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccMacros.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/platform/android/CCStdC.h \
- C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/math.h \
- C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdlib.h \
- C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/alloca.h \
- C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h \
- C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h \
- C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccConfig.h
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/CCEventCustom.cpp \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/CCEventCustom.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/CCEvent.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/string \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCRef.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformMacros.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccConfig.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformConfig.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformConfig.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/platform/android/CCPlatformDefine.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/android/log.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformMacros.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccMacros.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCConsole.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/select.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/thread \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/map \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/mutex \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccMacros.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/platform/android/CCStdC.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/math.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdlib.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/alloca.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h \
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccConfig.h
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/CCEventCustom.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/CCEventCustom.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/CCEvent.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/CCEvent.h:
 
-C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/string:
+/Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/string:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCRef.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCRef.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformMacros.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformMacros.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccConfig.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccConfig.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformConfig.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformConfig.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformConfig.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformConfig.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/platform/android/CCPlatformDefine.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/platform/android/CCPlatformDefine.h:
 
-C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/android/log.h:
+/Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/android/log.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCPlatformMacros.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCPlatformMacros.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccMacros.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccMacros.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/../base/CCConsole.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../base/CCConsole.h:
 
-C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/select.h:
+/Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/sys/select.h:
 
-C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/thread:
+/Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/thread:
 
-C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector:
+/Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/vector:
 
-C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/map:
+/Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/map:
 
-C:/Dev/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/mutex:
+/Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/mutex:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccMacros.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccMacros.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/platform/android/CCStdC.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/platform/android/CCStdC.h:
 
-C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/math.h:
+/Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/math.h:
 
-C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdlib.h:
+/Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/stdlib.h:
 
-C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/alloca.h:
+/Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/alloca.h:
 
-C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h:
+/Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/strings.h:
 
-C:/Dev/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h:
+/Users/phantomjr2/Downloads/android-ndk-r9d/platforms/android-9/arch-arm/usr/include/memory.h:
 
-C:\Users\Zac\Documents\RMZ2014\GAME2014\proj.android\../cocos2d/cocos/2d/ccConfig.h:
+/Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/ccConfig.h:

@@ -24,11 +24,13 @@
  ****************************************************************************/
 
 #import <UIKit/UIKit.h>
-
+#import "BannerViewController.h"
 
 @interface RootViewController : UIViewController {
 
 }
 - (BOOL) prefersStatusBarHidden;
+- (void)willBeginBannerViewActionNotification:(NSNotification *)notification;
+- (void)didFinishBannerViewActionNotification:(NSNotification *)notification;
 
 @end
