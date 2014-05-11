@@ -30,6 +30,20 @@ THE SOFTWARE.
 // implementation of Point
 NS_CC_BEGIN
 
+Point* Point::clampMagnitude(Point* p, float toMag)
+{
+ // Added by Ricardo Hyde
+
+
+ Point* temp = (Point*)malloc(sizeof(Point));
+ *temp = p->normalize();
+ //CCLOG("Normal: (%f, %f)", t.x, t.y);
+ temp->setPoint((toMag*2) * temp->x, (toMag*2) * temp->y);
+ //("Normal: (%f, %f)", temp->x, temp->y);
+
+ return temp;
+}
+
 Point::Point(void) : x(0), y(0)
 {
 }
@@ -186,20 +200,6 @@ bool Point::isOneDimensionSegmentOverlap(float A, float B, float C, float D, flo
         }
         return true;
     }
-}
-
-Point* Point::clampMagnitude(Point* p, float toMag)
-{
-	// Added by Ricardo Hyde
-
-
-	Point* temp = (Point*)malloc(sizeof(Point));
-	*temp = p->normalize();
-	//CCLOG("Normal: (%f, %f)", t.x, t.y);
-	temp->setPoint((toMag*2) * temp->x, (toMag*2) * temp->y);
-	//("Normal: (%f, %f)", temp->x, temp->y);
-
-	return temp;
 }
 
 bool Point::isLineIntersect(const Point& A, const Point& B,

@@ -67,6 +67,8 @@ public:
     /**
      * @js NA
      */
+
+	static Point* Point::clampMagnitude(Point* p, float toMag);
     Point(float x, float y);
     /**
      * @js NA
@@ -159,8 +161,6 @@ public:
      * @lua NA
      */
     bool fuzzyEquals(const Point& target, float variance) const;
-
-	static Point* clampMagnitude(Point* p, float toMag);
 
     /** Calculates distance between point an origin
      @return float

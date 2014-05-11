@@ -27,8 +27,12 @@
 #import "cocos2d.h"
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "BannerViewController.h"
 
 @implementation AppController
+{
+    BannerViewController* _bannerViewController;
+}
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -57,6 +61,7 @@ static AppDelegate s_sharedApplication;
     _viewController.wantsFullScreenLayout = YES;
     _viewController.view = eaglView;
 
+    /*
     // Set RootViewController to window
     if ( [[UIDevice currentDevice].systemVersion floatValue] < 6.0)
     {
@@ -68,6 +73,12 @@ static AppDelegate s_sharedApplication;
         // use this method on ios6
         [window setRootViewController:_viewController];
     }
+    */
+    
+    
+    _bannerViewController = [[BannerViewController alloc] initWithContentViewController:_viewController];
+   // self.window.rootViewController = _bannerViewController;
+    [window setRootViewController:_bannerViewController];
 
     [window makeKeyAndVisible];
 
