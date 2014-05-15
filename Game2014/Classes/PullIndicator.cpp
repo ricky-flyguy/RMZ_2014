@@ -78,11 +78,11 @@ void PullIndicator::input()
 		if(this->_offset.getLength() >= maxDist)
 		{
 			prcnt = 1;
-			this->setPosition(*Point::clampMagnitude(&this->_offset, this->radius) + this->_pivot);
+			this->setPosition(RMZHelper::clampMagnitude(&this->_offset, this->radius) + this->_pivot);
 			*p = ccp(-this->_offset.x, -this->_offset.y);
 			
-			this->arrow->setPosition(*Point::clampMagnitude(p, this->radius) + this->_pivot);
-			p = Point::clampMagnitude(p, this->radius); 
+			this->arrow->setPosition(RMZHelper::clampMagnitude(p, this->radius) + this->_pivot);
+			*p = RMZHelper::clampMagnitude(p, this->radius); 
 
 			if (this->_offset.x <= 0)
 				this->arrow->setRotation(RMZHelper::calculateAngle(_pivot, touch->getLocation()));
@@ -93,11 +93,11 @@ void PullIndicator::input()
 		else if (this->_offset.getLength() < maxDist)
 		{
 			prcnt = this->_offset.getLength()/maxDist;
-			this->setPosition(*Point::clampMagnitude(&this->_offset, this->radius * prcnt) + this->_pivot);
+			this->setPosition(RMZHelper::clampMagnitude(&this->_offset, this->radius * prcnt) + this->_pivot);
 			*p = ccp(-this->_offset.x, -this->_offset.y);
 			
-			this->arrow->setPosition(*Point::clampMagnitude(p, this->radius * prcnt) + this->_pivot);
-			p = Point::clampMagnitude(p, this->radius * prcnt);
+			this->arrow->setPosition(RMZHelper::clampMagnitude(p, this->radius * prcnt) + this->_pivot);
+			*p = RMZHelper::clampMagnitude(p, this->radius * prcnt);
 
 			if (this->_offset.x <= 0)
 				this->arrow->setRotation(RMZHelper::calculateAngle(this->_pivot, touch->getLocation()));

@@ -2,4 +2,5 @@ RMZ Team Members
 
 1. Ricardo Hyde 	- Programmer
 2. Mark Meritt		- Programmer
-3. Alexei Haustov	- Programmer
+3. Zach Warner		- Programmer
+4. Alexei Haustov	- Programmer
