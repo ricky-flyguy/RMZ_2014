@@ -91,26 +91,15 @@ bool HelloWorld::init()
 
 	//player = Player::create("sky_diver.png", &tempPos);
 	tempPos = ccp(visibleSize.width/3, visibleSize.height/3);
-	balloon = Balloon::create(&tempPos);
-	tempPos = ccp(visibleSize.width / 2, visibleSize.height / 2);
+	balloon = new Balloon();
+	tempPos = ccp(visibleSize.width / 2, visibleSize.height - (visibleSize.height / 4));
 
 	touchListener = EventListenerTouchOneByOne::create();
 
-	touchListener->onTouchBegan = [&](Touch* touch, Event* evt) // Explination: http://tinyurl.com/mu69n35
-	{
-		EventTouch* e = (EventTouch*)evt;
+	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
+	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
+	touchListener->onTouchEnded = CC_CALLBACK_2(HelloWorld::onTouchEnded, this);
 
-		Point loc = e->getCurrentTarget()->convertToNodeSpace(touch->getLocation());
-
-		//Balloon *b = Balloon::createWithForce(&loc, &loc);
-		//Balloon *b = Balloon::create("balloon.png", &loc);
-		//b->getPhysicsBody()->applyImpulse(Point(200, 10));
-
-		//this->addChild(b);
-
-		return true;
-	};
-	
 	this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 
 	player = Player::create("sky_diver.png", &tempPos); 
@@ -123,9 +112,9 @@ bool HelloWorld::init()
     
 	Sprite* apt = Sprite::create("apartment.png");
 
-	tempPos = ccp(visibleSize.width/2, visibleSize.height - visibleSize.height/4);
+	tempPos = ccp(visibleSize.width/8, visibleSize.height - visibleSize.height/4);
 
-	pull = PullIndicator::create(&tempPos);
+	pull = PullIndicator::create(&tempPos, player, this);
 
 	DrawNode* c = DrawNode::create();
 
@@ -139,14 +128,14 @@ bool HelloWorld::init()
 	tempPos = ccp(visibleSize.width/2, visibleSize.height/2.5f);
 	apt->setPosition(tempPos);
 
-    this->addChild(bg);
+    this->addChild(bg, 0);
 	//this->addChild(apt);
-	this->addChild(balloon);
-	this->addChild(player);
-	this->addChild(c);
-	this->addChild(pull);
-	this->addChild(pull->arrow);
-	this->addChild(civCivilian);
+	//this->addChild(balloon);
+	this->addChild(player, 100);
+	this->addChild(c, 75);
+	this->addChild(pull, 105);
+	this->addChild(pull->arrow, 105);
+	this->addChild(civCivilian, 100);
 
 	schedule(schedule_selector(HelloWorld::update));
     
@@ -155,15 +144,45 @@ bool HelloWorld::init()
 
 void HelloWorld::update(float dt)
 {
-	player->update(dt);
+	//player->update(dt);
+
+
 	//CCLog("Pull Pos: (%f, %f)", pull->getPosition().x, pull->getPosition().y);
 }
 
-void HelloWorld::addBalloon(Point* pos, Point* force)
+bool HelloWorld::onTouchBegan(Touch* touch, Event* evt)
 {
-	Balloon* b = Balloon::createWithForce(pos, force);
+	pull->onTouchBegan(touch, evt);
+	return true;
+}
+void HelloWorld::onTouchMoved(Touch* touch, Event* evt)
+{
+	pull->onTouchMoved(touch, evt);
+}
+void HelloWorld::onTouchEnded(Touch* touch, Event* evt)
+{
+	Point* poi = new Point(player->getPosition().x, player->getPosition().y);
+	Balloon* b = Balloon::createWithForce(poi, pull->onTouchEnded(touch, evt));
+	b->setCivilian(this->civCivilian);
 
-	Director::getInstance()->getRunningScene()->addChild(b, 100);
+	this->addChild(b, 100);
+}
+
+
+void HelloWorld::addBalloon(Point pos, Point* force)
+{
+	//Balloon* b = Balloon::createWithForce(&pos, force);
+	//Balloon* b = new Balloon();
+
+	//Director::getInstance()->getRunningScene()->addChild(b, 100);
+}
+
+void HelloWorld::removeBalloon(Balloon* balloon)
+{
+	//Director::getInstance()->getRunningScene()->removeChild(balloon, true);
+	balloon->removeFromParentAndCleanup(true);
+	//balloon->release();
+	//balloon = NULL;
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)

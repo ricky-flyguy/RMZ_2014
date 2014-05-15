@@ -2853,3 +2853,17 @@ Game2014/proj.wp8-xaml/HelloCppComponent/HelloCppComponent.vcxproj
 Game2014/proj.wp8-xaml/HelloCppComponent/HelloCppComponent.vcxproj.filters
 Game2014/proj.wp8-xaml/HelloCppComponent/pch.cpp
 Game2014/proj.wp8-xaml/HelloCppComponent/pch.h
+*.tlog
+*.log
+Game2014/proj.android/obj/local/armeabi/objs-debug/cocos2dcpp_shared/__/__/Classes/Balloon.o.d
+Game2014/proj.android/bin/classes/rmz/game2014/com/BuildConfig.class
+Game2014/proj.android/bin/classes/rmz/game2014/com/R$attr.class
+Game2014/proj.android/bin/classes/rmz/game2014/com/R$drawable.class
+Game2014/proj.android/bin/classes/rmz/game2014/com/R$string.class
+Game2014/proj.android/bin/classes/rmz/game2014/com/R.class
+Game2014/proj.android/gen/rmz/game2014/com/BuildConfig.java
+Game2014/proj.android/gen/rmz/game2014/com/R.java
+Game2014/cocos2d/cocos/2d/platform/android/java/gen/org/cocos2dx/lib/BuildConfig.java
+Game2014/proj.android/bin/jarlist.cache
+Game2014/proj.android/local.properties
+Game2014/proj.android/project.properties
