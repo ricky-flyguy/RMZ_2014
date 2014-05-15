@@ -69,6 +69,8 @@
 		9D22A07D191DC2CD00DAA642 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22A07C191DC2CD00DAA642 /* StoreKit.framework */; };
 		9D22A07F191DC2D900DAA642 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D22A07E191DC2D900DAA642 /* SystemConfiguration.framework */; };
 		9D22A0BD191EA3C000DAA642 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D22A0BB191EA3C000DAA642 /* BannerViewController.m */; };
+		9D22A0C0191EA8CB00DAA642 /* RMZHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D22A0BF191EA8CB00DAA642 /* RMZHelper.cpp */; };
+		9D22A0C2191EA8EA00DAA642 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D22A0C1191EA8EA00DAA642 /* arrow.png */; };
 		9D2B70C01917390F0093B8CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2B70BF1917390F0093B8CF /* OpenGLES.framework */; };
 		9D2B70C21917391D0093B8CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2B70C11917391C0093B8CF /* UIKit.framework */; };
 		9D2B70C41917394F0093B8CF /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D2B70C31917394F0093B8CF /* CoreMotion.framework */; };
@@ -297,6 +299,9 @@
 		9D22A07E191DC2D900DAA642 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		9D22A0BB191EA3C000DAA642 /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BannerViewController.m; path = ios/BannerViewController.m; sourceTree = SOURCE_ROOT; };
 		9D22A0BC191EA3C000DAA642 /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BannerViewController.h; path = ios/BannerViewController.h; sourceTree = SOURCE_ROOT; };
+		9D22A0BE191EA8CB00DAA642 /* RMZHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMZHelper.h; path = ../Classes/RMZHelper.h; sourceTree = "<group>"; };
+		9D22A0BF191EA8CB00DAA642 /* RMZHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RMZHelper.cpp; path = ../Classes/RMZHelper.cpp; sourceTree = "<group>"; };
+		9D22A0C1191EA8EA00DAA642 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		9D2B70B8191735880093B8CF /* cocos2d */ = {isa = PBXFileReference; lastKnownFileType = folder; name = cocos2d; path = ../cocos2d; sourceTree = "<group>"; };
 		9D2B70BF1917390F0093B8CF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		9D2B70C11917391C0093B8CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -411,6 +416,8 @@
 				9D22A04C191CCA7000DAA642 /* Civilian.h */,
 				9D22A04D191CCA7000DAA642 /* Civilian.cpp */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
+				9D22A0BE191EA8CB00DAA642 /* RMZHelper.h */,
+				9D22A0BF191EA8CB00DAA642 /* RMZHelper.cpp */,
 				9DFF4632191B4971007313AF /* MainMenu.h */,
 				9DFF4633191B4971007313AF /* MainMenu.cpp */,
 				9D2B70EC19175B910093B8CF /* Background.h */,
@@ -552,6 +559,7 @@
 			children = (
 				9D2B70E519173F4B0093B8CF /* fonts */,
 				9D2B70E319173F430093B8CF /* sky_diver.png */,
+				9D22A0C1191EA8EA00DAA642 /* arrow.png */,
 				9D22A053191CCABB00DAA642 /* apartment.png */,
 				9D22A055191CCC8700DAA642 /* sky.png */,
 				9D22A04F191CCA9B00DAA642 /* pull.png */,
@@ -749,6 +757,7 @@
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				9D22A0C2191EA8EA00DAA642 /* arrow.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				9D22A054191CCABB00DAA642 /* apartment.png in Resources */,
@@ -782,6 +791,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				9D22A0BD191EA3C000DAA642 /* BannerViewController.m in Sources */,
 				9DFF4634191B4971007313AF /* MainMenu.cpp in Sources */,
+				9D22A0C0191EA8CB00DAA642 /* RMZHelper.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				9D2B70DE19173E580093B8CF /* Player.cpp in Sources */,
 				9DF89F8F191ACD00004983EA /* Balloon.cpp in Sources */,
