@@ -2867,3 +2867,6 @@ Game2014/cocos2d/cocos/2d/platform/android/java/gen/org/cocos2dx/lib/BuildConfig
 Game2014/proj.android/bin/jarlist.cache
 Game2014/proj.android/local.properties
 Game2014/proj.android/project.properties
+Game2014/proj.android/
+Game2014/cocos2d/cocos/2d/platform/android/java/bin/libcocos2dx.jar
+Game2014/cocos2d/cocos/2d/platform/android/java/bin/classes/R.java.d
