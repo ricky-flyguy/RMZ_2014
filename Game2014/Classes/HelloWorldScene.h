@@ -16,6 +16,7 @@ class HelloWorld : public cocos2d::Layer
 {
 private:
 	PhysicsWorld* m_World;
+	EventListenerTouchOneByOne* touchListener;
 
 public:
 
@@ -26,23 +27,27 @@ public:
 	Size visibleSize;
 
 	LabelTTF* label;
+
+	CCArray* balloons;
     
     Background* bg;
 
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
-	static void addBalloon(Point* pos, Point* force);
+	void addBalloon(Point pos, Point* force);
+	static void removeBalloon(Balloon* balloon);
 
 	void setPhyWorld(PhysicsWorld* world) { m_World = world; }
 	PhysicsWorld* getPhysicsWorld() { return m_World; }
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init(); 
-	
 
 	virtual void update(float dt);
 
-	EventListenerTouchOneByOne* touchListener;
+	bool onTouchBegan(Touch* touch, Event* evt);
+	void onTouchMoved(Touch* touch, Event* evt);
+	void onTouchEnded(Touch* touch, Event* evt);
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
