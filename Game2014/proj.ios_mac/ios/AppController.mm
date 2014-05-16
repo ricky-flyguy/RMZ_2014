@@ -77,7 +77,7 @@ static AppDelegate s_sharedApplication;
     
     
     _bannerViewController = [[BannerViewController alloc] initWithContentViewController:_viewController];
-   // self.window.rootViewController = _bannerViewController;
+   self.window.rootViewController = _bannerViewController;
     [window setRootViewController:_bannerViewController];
 
     [window makeKeyAndVisible];

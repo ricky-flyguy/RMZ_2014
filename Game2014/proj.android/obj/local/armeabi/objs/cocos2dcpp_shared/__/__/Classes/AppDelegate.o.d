@@ -238,8 +238,8 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/AppDelegate.o: \
  jni/../../Classes/HelloWorldScene.h jni/../../Classes/Player.h \
  jni/../../Classes/Balloon.h jni/../../Classes/Background.h \
  /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
- jni/../../Classes/PullIndicator.h jni/../../Classes/MainMenu.h \
- jni/../../Classes/Civilian.h
+ jni/../../Classes/PullIndicator.h jni/../../Classes/RMZHelper.h \
+ jni/../../Classes/MainMenu.h jni/../../Classes/Civilian.h
 
 jni/../../Classes/AppDelegate.h:
 
@@ -724,6 +724,8 @@ jni/../../Classes/Background.h:
 /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
 
 jni/../../Classes/PullIndicator.h:
+
+jni/../../Classes/RMZHelper.h:
 
 jni/../../Classes/MainMenu.h:
 

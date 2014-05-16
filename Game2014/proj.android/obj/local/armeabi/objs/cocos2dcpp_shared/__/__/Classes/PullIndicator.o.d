@@ -234,7 +234,12 @@ obj/local/armeabi/objs/cocos2dcpp_shared/__/__/Classes/PullIndicator.o: \
  /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCDouble.h \
  /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCBool.h \
  /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCNotificationCenter.h \
- /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCDeprecated.h
+ /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCDeprecated.h \
+ jni/../../Classes/RMZHelper.h jni/../../Classes/HelloWorldScene.h \
+ jni/../../Classes/Player.h jni/../../Classes/Balloon.h \
+ jni/../../Classes/Background.h \
+ /Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream \
+ jni/../../Classes/MainMenu.h jni/../../Classes/Civilian.h
 
 jni/../../Classes/PullIndicator.h:
 
@@ -707,3 +712,19 @@ jni/../../Classes/PullIndicator.h:
 /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCNotificationCenter.h:
 
 /Users/phantomjr2/Development/RMZ_2014/Game2014/proj.android/../cocos2d/cocos/2d/../deprecated/CCDeprecated.h:
+
+jni/../../Classes/RMZHelper.h:
+
+jni/../../Classes/HelloWorldScene.h:
+
+jni/../../Classes/Player.h:
+
+jni/../../Classes/Balloon.h:
+
+jni/../../Classes/Background.h:
+
+/Users/phantomjr2/Downloads/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include/iostream:
+
+jni/../../Classes/MainMenu.h:
+
+jni/../../Classes/Civilian.h:

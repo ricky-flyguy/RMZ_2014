@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "RMZHelper.h"
+#include "Player.h"
 
 using namespace cocos2d;
 
@@ -14,6 +15,9 @@ private:
 	Point _offset;
 	Point* p; // force
 	float prcnt;
+	Player* _player;
+
+	Layer* layer;
 
 	EventListenerTouchOneByOne* touchListener;
 
@@ -26,8 +30,11 @@ public:
 
 	Sprite* arrow;
 
-	static PullIndicator* create(Point* pos);
+	static PullIndicator* create(Point* pos, Player* player, Layer* layer);
 	virtual void update(float dt);	
+	bool onTouchBegan(Touch* touch, Event* evt);
+	void onTouchMoved(Touch* touch, Event* evt);
+	Point* onTouchEnded(Touch* touch, Event* evt);
 	
 	PullIndicator(Point* pos);
 	PullIndicator();

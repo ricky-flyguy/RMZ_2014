@@ -15,6 +15,12 @@ float RMZHelper::calculateAngle(const Point origin, const Point offset)
 	return theta;
 }
 
+Point RMZHelper::clampMagnitude(Point* p, float mag)
+{
+	Point poi = Point();
+	poi = p->normalize() * (mag*2);p->normalize() * (mag*2);
+	return poi;
+}
 
 RMZHelper::~RMZHelper(void)
 {

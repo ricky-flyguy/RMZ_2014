@@ -10,6 +10,7 @@ class RMZHelper
 public:
 
 	static float calculateAngle(const Point origin, const Point offset);
+	static Point clampMagnitude(Point* p, float mag);
 
 	RMZHelper(void);
 	~RMZHelper(void);

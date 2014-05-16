@@ -22,12 +22,12 @@ Civilian* Civilian::create(const std::string &filename, int iNewScoreValue, Poin
 		cNew->autorelease();
 		cNew->setScale(0.25f);
 		cNew->setPosition(*pPosition);
+		cNew->setTag(2);
 
 		PhysicsBody *pbBody = PhysicsBody::createBox(cNew->getBoundingBox().size);
 		pbBody->setMass(0.0f);
 		pbBody->setDynamic(false);
 		cNew->setPhysicsBody(pbBody);
-
 
 		//Update the civilian (moving left to right /\ viseversa)
 		cNew->schedule(schedule_selector(Civilian::update));

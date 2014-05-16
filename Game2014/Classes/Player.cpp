@@ -37,7 +37,7 @@ Player* Player::create(const std::string &filename, Point* pos)
 
 void Player::update(float dt)
 {
-	this->setPosition(ccp(this->getPosition().x + velocity->x, this->getPosition().y + velocity->y));
+	//this->setPosition(ccp(this->getPosition().x + velocity->x, this->getPosition().y + velocity->y));
 	clamp();
 }
 
