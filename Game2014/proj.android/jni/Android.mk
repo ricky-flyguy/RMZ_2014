@@ -16,6 +16,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 			   ../../Classes/MainMenu.cpp\
 			   ../../Classes/Civilian.cpp\
 			   ../../Classes/RMZHelper.cpp\
+			   ../../Classes/Options.cpp\
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
