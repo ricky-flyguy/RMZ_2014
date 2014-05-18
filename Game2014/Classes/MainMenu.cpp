@@ -7,9 +7,11 @@
 //
 
 #include "MainMenu.h"
+#include "Options.h"
 #include "HelloWorldScene.h"
 
 using namespace cocos2d;
+
 
 
 Scene* MainMenu::createScene()
@@ -69,7 +71,7 @@ void MainMenu::onPlay(Object* sender)
 
 void MainMenu::onOptions(Object* sender)
 {
-    
+    Director::getInstance()->replaceScene(TransitionFade::create(0.9f, Options::createScene()));
 }
 
 void MainMenu::onExit(Object* sender)
