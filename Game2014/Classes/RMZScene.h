@@ -26,7 +26,7 @@ public:
 
 	static cocos2d::Scene* createScene();
 
-	void onExit(Object* sender);
+	virtual void onExit(Object* sender);
 
 	RMZScene(void);
 	~RMZScene(void);

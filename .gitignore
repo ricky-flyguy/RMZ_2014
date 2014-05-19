@@ -3414,3 +3414,6 @@ Game2014/proj.wp8-xaml/HelloCppComponent/pch.cpp
 Game2014/proj.wp8-xaml/HelloCppComponent/pch.h
 Game2014/proj.win32/Game2014.opensdf
 Game2014/CMakeLists.txt
+*.obj
+*.tlog
+Game2014/proj.win32/Debug.win32/Game2014.unsuccessfulbuild

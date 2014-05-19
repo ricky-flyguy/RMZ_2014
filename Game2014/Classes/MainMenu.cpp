@@ -83,7 +83,7 @@ void MainMenu::onHighScore(Object* sender)
 }
 
 
-void RMZScene::onExit(Object* sender)
+void MainMenu::onExit(Object* sender)
 {
     Director::sharedDirector()->end();
 }

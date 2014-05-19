@@ -29,7 +29,7 @@ public:
 	void onAudio(Object* sender);
 	void onRMZLINK(Object* sender);
 	void onExit(Object* sender);
-	RMZScene::onExit(Object* sender);
+	//void RMZScene::onExit(Object* sender);
 
 	CREATE_FUNC(Options);
 
