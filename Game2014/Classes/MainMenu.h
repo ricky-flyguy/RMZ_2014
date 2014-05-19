@@ -25,8 +25,8 @@ public:
     void onPlay(Object* sender);
     void onOptions(Object* sender);
 	void onHighScore(Object* sender);
-    //void onExit(Object* sender);
-	//RMZScene::onExit(Object* sender);
+    void onExit(Object* sender);
+	//void RMZScene::onExit(Object* sender);
     
     CREATE_FUNC(MainMenu);
 
