@@ -1,4 +1,4 @@
-Game2014/CMakeLists.txt
+
 Game2014/bin/debug/android/Game2014-debug.apk
 Game2014/cocos2d/AUTHORS
 Game2014/cocos2d/CHANGELOG
@@ -3413,3 +3413,4 @@ Game2014/proj.wp8-xaml/HelloCppComponent/HelloCppComponent.vcxproj.filters
 Game2014/proj.wp8-xaml/HelloCppComponent/pch.cpp
 Game2014/proj.wp8-xaml/HelloCppComponent/pch.h
 Game2014/proj.win32/Game2014.opensdf
+Game2014/CMakeLists.txt
