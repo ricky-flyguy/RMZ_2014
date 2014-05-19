@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------------
 
-				Options.h
+				GameOver.h
 
 				Game2014
 
@@ -8,16 +8,14 @@
 
 ---------------------------------------------------------------------------------*/
 
-
-#ifndef Game2014_Options
-#define Game2014_Options
+#ifndef Game2014_GameOver
+#define Game2014_GameOver
 
 #include "RMZScene.h"
 
-
 using namespace cocos2d;
 
-class Options : public RMZScene
+class GameOver : public RMZScene
 {
 
 public:
@@ -26,15 +24,12 @@ public:
 
 	virtual bool init();
 
-	void onAudio(Object* sender);
-	void onRMZLINK(Object* sender);
+	
 	void onExit(Object* sender);
-	RMZScene::onExit(Object* sender);
+	//RMZScene::onExit(Object* sender);
 
-	CREATE_FUNC(Options);
+	CREATE_FUNC(GameOver);
 
 };
-#endif // !Game2014_Options
 
-
-
+#endif // !Game2014_GameOver

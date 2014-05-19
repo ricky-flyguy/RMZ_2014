@@ -72,7 +72,7 @@ bool Options::init()
 
 void Options::onAudio(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionCrossFade::create(0.9f, HelloWorld::createScene()));
+	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HelloWorld::createScene()));
 }
 
 void Options::onRMZLINK(Object* sender)
@@ -82,6 +82,6 @@ void Options::onRMZLINK(Object* sender)
 
 void Options::onExit(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionMoveInL::create(0.9f, MainMenu::createScene()));
+	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
 }
 

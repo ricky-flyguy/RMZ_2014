@@ -1,6 +1,6 @@
 /* --------------------------------------------------------------------------------
 
-				Options.h
+				LoadingScreen.h
 
 				Game2014
 
@@ -8,16 +8,14 @@
 
 ---------------------------------------------------------------------------------*/
 
-
-#ifndef Game2014_Options
-#define Game2014_Options
+#ifndef Game2014_LoadingScreen
+#define Game2014_LoadingScreen
 
 #include "RMZScene.h"
 
-
 using namespace cocos2d;
 
-class Options : public RMZScene
+class LoadingScreen : public RMZScene
 {
 
 public:
@@ -26,15 +24,11 @@ public:
 
 	virtual bool init();
 
-	void onAudio(Object* sender);
-	void onRMZLINK(Object* sender);
-	void onExit(Object* sender);
-	RMZScene::onExit(Object* sender);
+	
+	//void onExit(Object* sender);
 
-	CREATE_FUNC(Options);
+	CREATE_FUNC(LoadingScreen);
 
 };
-#endif // !Game2014_Options
 
-
-
+#endif // !Game2014_LoadingScreen
