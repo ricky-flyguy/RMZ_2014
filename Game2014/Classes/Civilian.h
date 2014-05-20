@@ -9,16 +9,16 @@ class Civilian : public Sprite
 {
 private:
 	float fSpeed;
+	bool bMovingRight;
 	//Point* pPosition;
 	Size screenSize;
 	int iScoreValue;
 
 public:
-	static Civilian* create(const std::string &filename, int iNewScoreValue, Point* pPosition);
+	static Civilian* create(const std::string &filename, int iNewScoreValue, bool bMovingRight, float fSpeed);
 	virtual void update(float fDeltaTime);
-	bool init();
 
-	Civilian(void);
+	Civilian(float fnewSpeed, bool bnewMovement);
 	~Civilian(void);
 };
 

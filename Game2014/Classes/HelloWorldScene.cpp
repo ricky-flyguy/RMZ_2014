@@ -104,8 +104,8 @@ bool HelloWorld::init()
 
 	player = Player::create("sky_diver.png", &tempPos); 
 
-	tempPos = ccp(50, visibleSize.height/6);
-	civCivilian = Civilian::create("sky_diver.png", 20, &tempPos);
+	//tempPos = ccp(50, visibleSize.height/6);
+	//civCivilian = Civilian::create("sky_diver.png", 20, &tempPos);
 
 	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
     bg = Background::create("sky.png", &tempPos);
@@ -135,8 +135,11 @@ bool HelloWorld::init()
 	this->addChild(c, 75);
 	this->addChild(pull, 105);
 	this->addChild(pull->arrow, 105);
-	this->addChild(civCivilian, 100);
-
+	//this->addChild(civCivilian, 100);
+	
+	civMaker = new CivFactory();
+	//this->addChild(civMaker->newCiv(), 100);
+	iTime = 0;
 	schedule(schedule_selector(HelloWorld::update));
     
     return true;
@@ -145,7 +148,22 @@ bool HelloWorld::init()
 void HelloWorld::update(float dt)
 {
 	//player->update(dt);
+	//civMaker->update(dt);
 
+	iTime += 1;
+	switch (iTime / 60)
+	{
+	case 1:
+		this->addChild(civMaker->newCiv(), 100);
+		iTime = 0;
+		break;
+	case 2:
+		//this->addChild(civMaker->newCiv(), 100);
+		break;
+	case 3:
+		//iTime = 0;
+		break;
+	}
 
 	//CCLog("Pull Pos: (%f, %f)", pull->getPosition().x, pull->getPosition().y);
 }
@@ -163,7 +181,7 @@ void HelloWorld::onTouchEnded(Touch* touch, Event* evt)
 {
 	Point* poi = new Point(player->getPosition().x, player->getPosition().y);
 	Balloon* b = Balloon::createWithForce(poi, pull->onTouchEnded(touch, evt));
-	b->setCivilian(this->civCivilian);
+	//b->setCivilian(this->civCivilian);
 
 	this->addChild(b, 100);
 }
