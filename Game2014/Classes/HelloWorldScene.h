@@ -7,8 +7,9 @@
 #include "Background.h"
 #include "PullIndicator.h"
 #include "MainMenu.h"
-#include "Civilian.h"
+//#include "Civilian.h"
 #include "RMZHelper.h"
+#include "CivFactory.h"
 
 using namespace cocos2d;
 
@@ -18,12 +19,15 @@ private:
 	PhysicsWorld* m_World;
 	EventListenerTouchOneByOne* touchListener;
 
+	int iTime;
+
 public:
 
 	Player* player;
 	Balloon* balloon;
 	PullIndicator* pull;
-	Civilian* civCivilian;
+	//Civilian* civCivilian;
+	CivFactory* civMaker;
 	Size visibleSize;
 
 	LabelTTF* label;

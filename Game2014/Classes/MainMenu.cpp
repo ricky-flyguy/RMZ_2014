@@ -52,7 +52,7 @@ bool MainMenu::init()
 
 		MenuItemFont* item3 = MenuItemFont::create("HIGHSCORE", this, menu_selector(MainMenu::onHighScore));
         
-        MenuItemFont* item9 = MenuItemFont::create("QUIT", this, menu_selector(RMZScene::onExit));
+        MenuItemFont* item9 = MenuItemFont::create("QUIT", this, menu_selector(MainMenu::onExit));
         
         //COMBINE these items to form a menu vertically
         Menu* menu = Menu::create(item1, item2, item9, NULL);
@@ -79,7 +79,7 @@ void MainMenu::onOptions(Object* sender)
 
 void MainMenu::onHighScore(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HighScore::createScene()));
+	//Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HighScore::createScene()));
 }
 
 

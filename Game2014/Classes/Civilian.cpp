@@ -1,27 +1,28 @@
 #include "Civilian.h"
 
 
-Civilian::Civilian(void)
+Civilian::Civilian(float fnSpeed, bool bnewMovement)
 {
 	screenSize = Director::getInstance()->getVisibleSize();
-	this->init();
+	this->bMovingRight = bnewMovement;
+
+	if(bMovingRight) this->fSpeed = fnSpeed;
+	else this->fSpeed = -fnSpeed;
+	
 }
 
-bool Civilian::init()
+Civilian* Civilian::create(const std::string &filename, int iNewScoreValue, bool bMovingRight, float fSpeed)
 {
-	this->fSpeed = 1.5f;
-	return true;
-}
-
-Civilian* Civilian::create(const std::string &filename, int iNewScoreValue, Point* pPosition)
-{
-	Civilian* cNew = new Civilian();
+	Civilian* cNew = new Civilian(fSpeed, bMovingRight);
 
 	if (cNew && cNew->initWithFile(filename))
 	{
+		if(bMovingRight) cNew->setPosition(ccp(0, Director::getInstance()->getVisibleSize().height/6));
+		else cNew->setPosition(ccp(Director::getInstance()->getVisibleSize().width, Director::getInstance()->getVisibleSize().height/6));
+
 		cNew->autorelease();
 		cNew->setScale(0.25f);
-		cNew->setPosition(*pPosition);
+		
 		cNew->setTag(2);
 
 		PhysicsBody *pbBody = PhysicsBody::createBox(cNew->getBoundingBox().size);
@@ -41,8 +42,9 @@ Civilian* Civilian::create(const std::string &filename, int iNewScoreValue, Poin
 
 void Civilian::update(float fDeltaTime)
 {
-	if (this->getPosition().x - this->getBoundingBox().size.width/2  <= 0 || this->getPosition().x + this->getBoundingBox().size.width/2 >= screenSize.width) fSpeed = -fSpeed;
 	this->setPosition(ccp(this->getPosition().x + fSpeed, this->getPosition().y));
+	if (!bMovingRight && (this->getPosition().x - this->getBoundingBox().size.width/2  <= 0)) this->removeFromParent();
+	else if (bMovingRight && (this->getPosition().x + this->getBoundingBox().size.width/2 >= screenSize.width)) this->removeFromParent();	
 }
 
 Civilian::~Civilian(void)

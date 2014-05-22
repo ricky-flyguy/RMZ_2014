@@ -58,7 +58,7 @@ bool Options::init()
         Menu* menu = Menu::create(item1, item2, item3, NULL);
 
 		//Menu Alignment
-        menu->alignItemsHorizontally();
+        menu->alignItemsVertically();
         
         this->addChild(menu, 1);
         
