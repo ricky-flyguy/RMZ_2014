@@ -4,6 +4,7 @@
 PullIndicator::PullIndicator()
 {
 	screenSize = Director::getInstance()->getVisibleSize();
+	halfOfScreenWidth = screenSize.width/2;
 	this->radius = 25;
 }
 
@@ -138,12 +139,14 @@ bool PullIndicator::onTouchBegan(Touch* touch, Event* evt)
 {
 	EventTouch* e = (EventTouch*) evt;
 
-	this->setPosition(touch->getLocation());
+	//this->setPosition(touch->getLocation());
 
 	return true;
 }
 void PullIndicator::onTouchMoved(Touch* touch, Event* evt)
 {
+
+	if (touch->getLocation().x > halfOfScreenWidth) return;
 		EventTouch* e = (EventTouch*) evt;
 
 		float maxDist = this->radius * 4; //200

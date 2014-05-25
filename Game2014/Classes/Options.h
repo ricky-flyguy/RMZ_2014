@@ -28,7 +28,6 @@ public:
 
 	void onAudio(Object* sender);
 	void onRMZLINK(Object* sender);
-	void onExit(Object* sender);
 	
 
 	CREATE_FUNC(Options);

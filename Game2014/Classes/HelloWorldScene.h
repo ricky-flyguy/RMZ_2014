@@ -10,6 +10,7 @@
 //#include "Civilian.h"
 #include "RMZHelper.h"
 #include "CivFactory.h"
+#include "ArrowBtn.h"
 
 using namespace cocos2d;
 
@@ -29,6 +30,7 @@ public:
 	//Civilian* civCivilian;
 	CivFactory* civMaker;
 	Size visibleSize;
+	ArrowBtn* leftBtn, *rightBtn, *downBtn;
 
 	LabelTTF* label;
 

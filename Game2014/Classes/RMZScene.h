@@ -14,6 +14,14 @@
 #include <iostream>
 #include "cocos2d.h"
 
+/* 1. Properties
+	- Back Button.
+	- Content TextField
+
+	// Others
+	- Each of RMZScenes child should be a singleton.
+*/
+
 
 using namespace cocos2d;
 

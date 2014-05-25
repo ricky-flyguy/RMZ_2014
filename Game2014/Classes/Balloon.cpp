@@ -87,7 +87,7 @@ void Balloon::update(float dt)
 {	
 	//this->setPosition(ccp(this->getPosition().x, this->getPosition().y + (0.5 * -(gravity *gravity))));
 	//this->checkCollision();
-	CCLog("Updating: ");
+	//CCLog("Updating: ");
 }
 void Balloon::setCivilian(Civilian* civ)
 {

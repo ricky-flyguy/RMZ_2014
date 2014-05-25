@@ -3700,3 +3700,7 @@ Game2014/proj.win32/Debug.win32/Splash.obj
 Create Proj.bat
 Game2014/proj.win32/Debug.win32/Game2014.unsuccessfulbuild
 PushAndroid.bat
+Game2014/proj.win32/
+Game2014/proj.android/
+Game2014/cocos2d/cocos/2d/platform/android/java/bin/proguard.txt
+Game2014/cocos2d/cocos/2d/platform/android/java/gen/org/cocos2dx/lib/BuildConfig.java
