@@ -9,9 +9,9 @@
 ---------------------------------------------------------------------------------*/
 
 #include "Options.h"
-#include "HelloWorldScene.h"
+#include "MainMenu.h"
+#include "Audio.h"
 
-using namespace cocos2d;
 
 Scene* Options::createScene()
 {
@@ -52,10 +52,10 @@ bool Options::init()
         
         MenuItemFont* item2 = MenuItemFont::create("RMZLINKTOGAMESANDSHEIT", this, menu_selector(Options::onRMZLINK));
         
-        MenuItemFont* item3 = MenuItemFont::create("BACK", this, menu_selector(Options::onExit));
+        MenuItemFont* exit = MenuItemFont::create("BACK", this, menu_selector(Options::onExit));
         
         //COMBINE these items to form a menu 
-        Menu* menu = Menu::create(item1, item2, item3, NULL);
+        Menu* menu = Menu::create(item1, item2, exit, NULL);
 
 		//Menu Alignment
         menu->alignItemsVertically();
@@ -72,7 +72,7 @@ bool Options::init()
 
 void Options::onAudio(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HelloWorld::createScene()));
+	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Audio::createScene()));
 }
 
 void Options::onRMZLINK(Object* sender)

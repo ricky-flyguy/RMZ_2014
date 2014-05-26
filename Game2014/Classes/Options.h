@@ -14,9 +14,6 @@
 
 #include "RMZScene.h"
 
-
-using namespace cocos2d;
-
 class Options : public RMZScene
 {
 

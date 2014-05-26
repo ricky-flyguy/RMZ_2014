@@ -10,10 +10,8 @@
 #include "Options.h"
 #include "HighScore.h"
 #include "HelloWorldScene.h"
-
-using namespace cocos2d;
-
-
+#include "Credits.h"
+#include "Social.h"
 
 Scene* MainMenu::createScene()
 {
@@ -51,11 +49,15 @@ bool MainMenu::init()
         MenuItemFont* item2 = MenuItemFont::create("OPTIONS", this, menu_selector(MainMenu::onOptions));
 
 		MenuItemFont* item3 = MenuItemFont::create("HIGHSCORE", this, menu_selector(MainMenu::onHighScore));
-        
-        MenuItemFont* item9 = MenuItemFont::create("QUIT", this, menu_selector(MainMenu::onExit));
+
+		MenuItemFont* item4 = MenuItemFont::create("SOCIAL", this, menu_selector(MainMenu::onSocial));
+
+		MenuItemFont* item5 = MenuItemFont::create("CREDITS", this, menu_selector(MainMenu::onCredits));
+     
+        MenuItemFont* exit = MenuItemFont::create("QUIT", this, menu_selector(MainMenu::onExit));
         
         //COMBINE these items to form a menu vertically
-        Menu* menu = Menu::create(item1, item2, item9, NULL);
+        Menu* menu = Menu::create(item1, item2, item3, item4, item5, exit, NULL);
         menu->alignItemsVertically();
         
         this->addChild(menu, 1);
@@ -79,9 +81,18 @@ void MainMenu::onOptions(Object* sender)
 
 void MainMenu::onHighScore(Object* sender)
 {
-	//Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HighScore::createScene()));
+	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HighScore::createScene()));
 }
 
+void MainMenu::onSocial(Object* sender)
+{
+	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Social::createScene()));
+}
+
+void MainMenu::onCredits(Object* sender)
+{
+	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Credits::createScene()));
+}
 
 void MainMenu::onExit(Object* sender)
 {

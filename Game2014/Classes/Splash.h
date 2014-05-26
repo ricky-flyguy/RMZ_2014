@@ -13,8 +13,6 @@
 
 #include "RMZScene.h"
 
-using namespace cocos2d;
-
 class Splash : public RMZScene
 {
 
@@ -25,10 +23,8 @@ public:
 	virtual bool init();
 
 	void onExit(Object* sender);
-	//RMZScene::onExit(Object* sender);
 
 	CREATE_FUNC(Splash);
-
 };
 
 #endif // !Game2014_Splash

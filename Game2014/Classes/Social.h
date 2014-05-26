@@ -13,8 +13,6 @@
 
 #include "RMZScene.h"
 
-using namespace cocos2d;
-
 class Social : public RMZScene
 {
 
@@ -26,10 +24,8 @@ public:
 
 	int ShareScoreFB();
 	void onExit(Object* sender);
-	//RMZScene::onExit(Object* sender);
 
 	CREATE_FUNC(Social);
-
 };
 
 #endif // !Game2014_Social

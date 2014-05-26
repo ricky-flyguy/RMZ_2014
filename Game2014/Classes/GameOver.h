@@ -24,10 +24,8 @@ public:
 
 	virtual bool init();
 
-	
 	void onExit(Object* sender);
-	//RMZScene::onExit(Object* sender);
-
+	
 	CREATE_FUNC(GameOver);
 
 };

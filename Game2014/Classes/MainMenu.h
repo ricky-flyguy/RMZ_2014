@@ -11,8 +11,6 @@
 
 #include "RMZScene.h"
 
-using namespace cocos2d;
-
 class MainMenu : public RMZScene
 {
     
@@ -20,13 +18,14 @@ public:
     
     static cocos2d::Scene* createScene();
     
-        virtual bool init();
+    virtual bool init();
     
     void onPlay(Object* sender);
     void onOptions(Object* sender);
 	void onHighScore(Object* sender);
+	void onSocial(Object* sender);
+	void onCredits(Object* sender);
     void onExit(Object* sender);
-	//void RMZScene::onExit(Object* sender);
     
     CREATE_FUNC(MainMenu);
 

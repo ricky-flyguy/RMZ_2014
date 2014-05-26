@@ -24,11 +24,8 @@ public:
 
 	virtual bool init();
 
-	void SetMusicVolume();
-	void SetSoundFXVolume();
 	void Mute();
 	void onExit(Object* sender);
-	//RMZScene::onExit(Object* sender);
 
 	CREATE_FUNC(Audio);
 

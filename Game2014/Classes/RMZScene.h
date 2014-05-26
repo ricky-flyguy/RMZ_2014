@@ -14,7 +14,6 @@
 #include <iostream>
 #include "cocos2d.h"
 
-
 using namespace cocos2d;
 
 class RMZScene : public Layer
@@ -25,8 +24,6 @@ public:
 	Label* title;
 
 	static cocos2d::Scene* createScene();
-
-	virtual void onExit(Object* sender);
 
 	RMZScene(void);
 	~RMZScene(void);

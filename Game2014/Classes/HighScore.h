@@ -15,13 +15,18 @@
 
 class HighScore : public RMZScene
 {
+
 public:
 
+	static cocos2d::Scene* createScene();
+
+	virtual bool init();
+
 	void Clear();
+	void onExit(Object* sender);
 
 	//return? getHighScores();
 
-	HighScore(void);
-	~HighScore(void);
+	CREATE_FUNC(HighScore);
 };
 #endif //Game2014_HighScore

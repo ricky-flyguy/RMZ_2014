@@ -13,8 +13,6 @@
 
 #include "RMZScene.h"
 
-using namespace cocos2d;
-
 class HowToPlay : public RMZScene
 {
 
@@ -24,12 +22,9 @@ public:
 
 	virtual bool init();
 
+	void onExit(Object* sender);
 	
-	//void onExit(Object* sender);
-	//RMZScene::onExit(Object* sender);
-
 	CREATE_FUNC(HowToPlay);
-
 };
 
 #endif // !Game2014_HowToPlay

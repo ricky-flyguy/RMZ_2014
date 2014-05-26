@@ -13,8 +13,6 @@
 
 #include "RMZScene.h"
 
-using namespace cocos2d;
-
 class LoadingScreen : public RMZScene
 {
 
@@ -24,8 +22,7 @@ public:
 
 	virtual bool init();
 
-	
-	//void onExit(Object* sender);
+	void onExit(Object* sender);
 
 	CREATE_FUNC(LoadingScreen);
 
