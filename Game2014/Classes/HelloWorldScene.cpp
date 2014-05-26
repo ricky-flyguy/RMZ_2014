@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -6,8 +7,9 @@ USING_NS_CC;
 
 Scene* HelloWorld::createScene()
 {
+    scene = NULL;
     // 'scene' is an autorelease object
-	auto scene = Scene::createWithPhysics();
+    scene = Scene::createWithPhysics();
 	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 	scene->getPhysicsWorld()->setSpeed(1.5f);
     
@@ -24,6 +26,14 @@ Scene* HelloWorld::createScene()
     // return the scene
     return scene;
 }
+
+Scene* HelloWorld::getCurrentScene()
+{
+    if(scene != NULL)
+    return scene;
+}
+
+
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
@@ -139,6 +149,15 @@ bool HelloWorld::init()
 
 	schedule(schedule_selector(HelloWorld::update));
     
+    //Main menu items
+    MenuItemFont* back1 = MenuItemFont::create("Back", this, menu_selector(HelloWorld::onBack));
+    
+    Menu* menu = Menu::create(back1, NULL);
+    menu->alignItemsVertically();
+    
+    this->addChild(menu, 1);
+
+    
     return true;
 }
 
@@ -148,6 +167,8 @@ void HelloWorld::update(float dt)
 
 
 	//CCLog("Pull Pos: (%f, %f)", pull->getPosition().x, pull->getPosition().y);
+    
+    
 }
 
 bool HelloWorld::onTouchBegan(Touch* touch, Event* evt)
@@ -183,6 +204,13 @@ void HelloWorld::removeBalloon(Balloon* balloon)
 	balloon->removeFromParentAndCleanup(true);
 	//balloon->release();
 	//balloon = NULL;
+}
+
+void HelloWorld::onBack(Object* Sender)
+{
+   // SceneManager::sceneMgr()->changeScene(0);
+    
+    Director::getInstance()->popScene();
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)

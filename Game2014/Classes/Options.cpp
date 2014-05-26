@@ -10,28 +10,36 @@
 
 #include "Options.h"
 #include "HelloWorldScene.h"
+#include "SceneManager.h"
+
 
 using namespace cocos2d;
 
+
 Scene* Options::createScene()
 {
-	Scene *scene = NULL;
-
-	do
-	{
-
-		scene = Scene::create(); //create the scene
-        CC_BREAK_IF(!scene); //if there is no scene, break
+    scene = NULL;
+    
+    do {
+        
+        scene = Scene::create(); //create the scene
+        // CC_BREAK_IF(!scene); //if there is no scene, break
         
         Options *layer = Options::create(); //create a layer
         CC_BREAK_IF(!layer);
         
         //add layer to the scene
         scene->addChild(layer);
+        
+    } while (0);
+    
+    return scene;
+}
 
-	} while (0);
-
-	return scene;
+Scene* Options::getCurrentScene()
+{
+    if(scene != NULL)
+     return scene;
 }
 
 bool Options::init()
@@ -72,7 +80,7 @@ bool Options::init()
 
 void Options::onAudio(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HelloWorld::createScene()));
+	//Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HelloWorld::createScene()));
 }
 
 void Options::onRMZLINK(Object* sender)
@@ -82,6 +90,6 @@ void Options::onRMZLINK(Object* sender)
 
 void Options::onExit(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
+	//Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
 }
 

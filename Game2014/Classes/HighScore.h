@@ -13,13 +13,17 @@
 
 #include "RMZScene.h"
 
-class HighScore : public RMZScene
+class HighScore : public Layer
 {
 public:
 
 	void Clear();
 
 	//return? getHighScores();
+    
+    static Scene* createScene();
+    
+    virtual bool init();
 
 	HighScore(void);
 	~HighScore(void);

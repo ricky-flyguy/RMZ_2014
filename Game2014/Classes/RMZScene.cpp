@@ -12,9 +12,9 @@
 #include "RMZScene.h"
 
 
-void RMZScene::onExit(Object* sender)
-{
-}
+//void RMZScene::onExit(Object* sender)
+//{
+//}
 
 RMZScene::RMZScene(void)
 {

@@ -7,22 +7,17 @@
 //
 
 #include "MainMenu.h"
-#include "Options.h"
-#include "HighScore.h"
-#include "HelloWorldScene.h"
-
-using namespace cocos2d;
-
+#include "SceneManager.h"
 
 
 Scene* MainMenu::createScene()
 {
-    Scene *scene = NULL;
+   scene = NULL;
     
     do {
         
-       scene = Scene::create(); //create the scene
-        CC_BREAK_IF(!scene); //if there is no scene, break
+        scene = Scene::create(); //create the scene
+       // CC_BREAK_IF(!scene); //if there is no scene, break
         
         MainMenu *layer = MainMenu::create(); //create a layer
         CC_BREAK_IF(!layer);
@@ -35,13 +30,20 @@ Scene* MainMenu::createScene()
     return scene;
 }
 
+Scene* MainMenu::getCurrentScene()
+{
+    if(scene != NULL)
+        return scene;
+}
+ 
+
 bool MainMenu::init()
 {
     bool bRet = false;
     
     do {
         CC_BREAK_IF(!Layer::init());
-        
+      
         //enable touch
         this->setTouchEnabled(true);
         
@@ -50,7 +52,7 @@ bool MainMenu::init()
         
         MenuItemFont* item2 = MenuItemFont::create("OPTIONS", this, menu_selector(MainMenu::onOptions));
 
-		MenuItemFont* item3 = MenuItemFont::create("HIGHSCORE", this, menu_selector(MainMenu::onHighScore));
+	//	MenuItemFont* item3 = MenuItemFont::create("HIGHSCORE", this, menu_selector(MainMenu::onHighScore));
         
         MenuItemFont* item9 = MenuItemFont::create("QUIT", this, menu_selector(MainMenu::onExit));
         
@@ -59,7 +61,7 @@ bool MainMenu::init()
         menu->alignItemsVertically();
         
         this->addChild(menu, 1);
-        
+       
         bRet = true;
     } while (0);
     
@@ -69,19 +71,19 @@ bool MainMenu::init()
 
 void MainMenu::onPlay(Object* Sender)
 {
-	Director::getInstance()->replaceScene(TransitionFade::create(0.9f, HelloWorld::createScene()));
+    SceneManager::sceneMgr()->changeScene(1);
 }
 
 void MainMenu::onOptions(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Options::createScene()));
+      SceneManager::sceneMgr()->changeScene(2);
 }
 
-void MainMenu::onHighScore(Object* sender)
+/*void MainMenu::onHighScore(Object* sender)
 {
-	//Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HighScore::createScene()));
+	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HighScore::createScene()));
 }
-
+*/
 
 void MainMenu::onExit(Object* sender)
 {

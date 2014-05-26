@@ -24,9 +24,11 @@ public:
 	Sprite* bg;
 	Label* title;
 
-	static cocos2d::Scene* createScene();
+    static Scene* create();
 
-	virtual void onExit(Object* sender);
+   // virtual bool init() override;
+
+	//virtual void onExit(Object* sender);
 
 	RMZScene(void);
 	~RMZScene(void);

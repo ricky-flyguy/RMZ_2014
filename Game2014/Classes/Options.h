@@ -14,22 +14,30 @@
 
 #include "RMZScene.h"
 
+#include "MainMenu.h"
+
+#include "cocos2d.h"
 
 using namespace cocos2d;
 
-class Options : public RMZScene
+class Options : public Layer
 {
-
+private:
+    
+    static Scene* scene;
+    
 public:
-
-	static cocos2d::Scene* createScene();
+   
+    
+     static Scene* getCurrentScene();
+    
+     static Scene* createScene();
 
 	virtual bool init();
 
 	void onAudio(Object* sender);
 	void onRMZLINK(Object* sender);
 	void onExit(Object* sender);
-	
 
 	CREATE_FUNC(Options);
 
