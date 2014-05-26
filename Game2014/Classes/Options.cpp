@@ -88,7 +88,7 @@ void Options::onRMZLINK(Object* sender)
     
 }
 
-void Options::onExit(Object* sender)
+void RMZScene::onExit(Object* sender)
 {
 	//Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
 }

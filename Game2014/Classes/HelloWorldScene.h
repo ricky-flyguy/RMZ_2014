@@ -6,8 +6,15 @@
 #include "Balloon.h"
 #include "Background.h"
 #include "PullIndicator.h"
+
 #include "Civilian.h"
+
+#include "MainMenu.h"
+//#include "Civilian.h"
+
 #include "RMZHelper.h"
+#include "CivFactory.h"
+#include "ArrowBtn.h"
 
 
 using namespace cocos2d;
@@ -23,14 +30,18 @@ private:
      static Scene* scene;
 
 
+	int iTime;
+
 public:
     
 
 	Player* player;
 	Balloon* balloon;
 	PullIndicator* pull;
-	Civilian* civCivilian;
+	//Civilian* civCivilian;
+	CivFactory* civMaker;
 	Size visibleSize;
+	ArrowBtn* leftBtn, *rightBtn, *downBtn;
 
 	LabelTTF* label;
 
