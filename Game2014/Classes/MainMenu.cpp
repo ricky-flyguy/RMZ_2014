@@ -12,15 +12,15 @@
 #include "HelloWorldScene.h"
 #include "Credits.h"
 #include "Social.h"
+#include "SceneManager.h"
 
 Scene* MainMenu::createScene()
 {
-    Scene *scene = NULL;
-    
+    Scene *scene = NULL;    
     do {
         
-       scene = Scene::create(); //create the scene
-        CC_BREAK_IF(!scene); //if there is no scene, break
+        scene = Scene::create(); //create the scene
+       // CC_BREAK_IF(!scene); //if there is no scene, break
         
         MainMenu *layer = MainMenu::create(); //create a layer
         CC_BREAK_IF(!layer);
@@ -32,6 +32,13 @@ Scene* MainMenu::createScene()
     
     return scene;
 }
+/*
+Scene* MainMenu::getCurrentScene()
+{
+    if(scene != NULL)
+        return scene;
+}
+ */
 
 bool MainMenu::init()
 {
@@ -39,7 +46,7 @@ bool MainMenu::init()
     
     do {
         CC_BREAK_IF(!Layer::init());
-        
+      
         //enable touch
         this->setTouchEnabled(true);
         
@@ -61,7 +68,7 @@ bool MainMenu::init()
         menu->alignItemsVertically();
         
         this->addChild(menu, 1);
-        
+       
         bRet = true;
     } while (0);
     
@@ -71,12 +78,12 @@ bool MainMenu::init()
 
 void MainMenu::onPlay(Object* Sender)
 {
-	Director::getInstance()->replaceScene(TransitionFade::create(0.9f, HelloWorld::createScene()));
+    SceneManager::sceneMgr()->changeScene(1);
 }
 
 void MainMenu::onOptions(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Options::createScene()));
+      SceneManager::sceneMgr()->changeScene(2);
 }
 
 void MainMenu::onHighScore(Object* sender)

@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "SceneManager.h"
 
 USING_NS_CC;
 
@@ -6,8 +7,9 @@ USING_NS_CC;
 
 Scene* HelloWorld::createScene()
 {
+    Scene *scene = NULL;
     // 'scene' is an autorelease object
-	auto scene = Scene::createWithPhysics();
+    scene = Scene::createWithPhysics();
 	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
 	scene->getPhysicsWorld()->setSpeed(1.5f);
     
@@ -24,6 +26,14 @@ Scene* HelloWorld::createScene()
     // return the scene
     return scene;
 }
+/*
+Scene* HelloWorld::getCurrentScene()
+{
+    if(scene != NULL)
+    return scene;
+}
+
+*/
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
@@ -95,6 +105,7 @@ bool HelloWorld::init()
 	tempPos = ccp(visibleSize.width / 2, visibleSize.height - (visibleSize.height / 4));
 
 	touchListener = EventListenerTouchOneByOne::create();
+	touchListener->setSwallowTouches(true);
 
 	touchListener->onTouchBegan = CC_CALLBACK_2(HelloWorld::onTouchBegan, this);
 	touchListener->onTouchMoved = CC_CALLBACK_2(HelloWorld::onTouchMoved, this);
@@ -104,8 +115,8 @@ bool HelloWorld::init()
 
 	player = Player::create("sky_diver.png", &tempPos); 
 
-	tempPos = ccp(50, visibleSize.height/6);
-	civCivilian = Civilian::create("sky_diver.png", 20, &tempPos);
+	//tempPos = ccp(50, visibleSize.height/6);
+	//civCivilian = Civilian::create("sky_diver.png", 20, &tempPos);
 
 	tempPos = ccp(visibleSize.width/2, visibleSize.height/2);
     bg = Background::create("sky.png", &tempPos);
@@ -115,6 +126,14 @@ bool HelloWorld::init()
 	tempPos = ccp(visibleSize.width/8, visibleSize.height - visibleSize.height/4);
 
 	pull = PullIndicator::create(&tempPos, player, this);
+	tempPos = ccp(visibleSize.width - visibleSize.width/6, visibleSize.height - visibleSize.height/4);
+
+	downBtn = ArrowBtn::create(&tempPos, ArrowBtn::Type::Down, player);
+//	tempPos = ccp(downBtn->getPosition().x - downBtn->getBoundingBox().size.width, downBtn->getPosition().y);
+	leftBtn = ArrowBtn::create(&tempPos, ArrowBtn::Type::Left, player);
+	tempPos = ccp(downBtn->getPosition().x + downBtn->getBoundingBox().size.width, downBtn->getPosition().y);
+	rightBtn = ArrowBtn::create(&tempPos, ArrowBtn::Type::Right, player);
+	
 
 	DrawNode* c = DrawNode::create();
 
@@ -135,9 +154,23 @@ bool HelloWorld::init()
 	this->addChild(c, 75);
 	this->addChild(pull, 105);
 	this->addChild(pull->arrow, 105);
-	this->addChild(civCivilian, 100);
-
+	this->addChild(downBtn, 100);
+	this->addChild(leftBtn, 100);
+	this->addChild(rightBtn, 100);
+	
+	civMaker = new CivFactory();
+	//this->addChild(civMaker->newCiv(), 100);
+	iTime = 0;
 	schedule(schedule_selector(HelloWorld::update));
+    
+    //Main menu items
+    MenuItemFont* back1 = MenuItemFont::create("Back", this, menu_selector(HelloWorld::onBack));
+    
+    Menu* menu = Menu::create(back1, NULL);
+    menu->alignItemsVertically();
+    
+    this->addChild(menu, 1);
+
     
     return true;
 }
@@ -145,25 +178,52 @@ bool HelloWorld::init()
 void HelloWorld::update(float dt)
 {
 	//player->update(dt);
+	//civMaker->update(dt);
 
+	iTime += 1;
+	switch (iTime / 60)
+	{
+	case 1:
+		this->addChild(civMaker->newCiv(), 100);
+		iTime = 0;
+		break;
+	case 2:
+		//this->addChild(civMaker->newCiv(), 100);
+		break;
+	case 3:
+		//iTime = 0;
+		break;
+	}
 
 	//CCLog("Pull Pos: (%f, %f)", pull->getPosition().x, pull->getPosition().y);
+    
+    
 }
 
 bool HelloWorld::onTouchBegan(Touch* touch, Event* evt)
 {
+	if (leftBtn->onTouchBegan(touch, evt)) return true;
+	if (rightBtn->onTouchBegan(touch, evt)) return true;
+	if (downBtn->onTouchBegan(touch, evt)) return true;
+
 	pull->onTouchBegan(touch, evt);
 	return true;
 }
 void HelloWorld::onTouchMoved(Touch* touch, Event* evt)
 {
+	leftBtn->onTouchMoved(touch, evt);
+	rightBtn->onTouchMoved(touch, evt);
+	downBtn->onTouchMoved(touch, evt);
 	pull->onTouchMoved(touch, evt);
 }
 void HelloWorld::onTouchEnded(Touch* touch, Event* evt)
 {
+	leftBtn->onTouchEnded(touch, evt);
+	rightBtn->onTouchEnded(touch, evt);
+	downBtn->onTouchEnded(touch, evt);
 	Point* poi = new Point(player->getPosition().x, player->getPosition().y);
 	Balloon* b = Balloon::createWithForce(poi, pull->onTouchEnded(touch, evt));
-	b->setCivilian(this->civCivilian);
+	//b->setCivilian(this->civCivilian);
 
 	this->addChild(b, 100);
 }
@@ -183,6 +243,13 @@ void HelloWorld::removeBalloon(Balloon* balloon)
 	balloon->removeFromParentAndCleanup(true);
 	//balloon->release();
 	//balloon = NULL;
+}
+
+void HelloWorld::onBack(Object* Sender)
+{
+   // SceneManager::sceneMgr()->changeScene(0);
+    
+    Director::getInstance()->popScene();
 }
 
 void HelloWorld::menuCloseCallback(Ref* pSender)

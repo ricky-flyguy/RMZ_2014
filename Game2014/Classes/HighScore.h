@@ -13,7 +13,7 @@
 
 #include "RMZScene.h"
 
-class HighScore : public RMZScene
+class HighScore : public Layer
 {
 
 public:
@@ -26,6 +26,10 @@ public:
 	void onExit(Object* sender);
 
 	//return? getHighScores();
+    
+    static Scene* createScene();
+    
+    virtual bool init();
 
 	CREATE_FUNC(HighScore);
 };

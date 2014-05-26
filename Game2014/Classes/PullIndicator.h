@@ -16,6 +16,7 @@ private:
 	Point* p; // force
 	float prcnt;
 	Player* _player;
+	float halfOfScreenWidth;
 
 	Layer* layer;
 

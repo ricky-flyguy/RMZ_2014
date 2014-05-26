@@ -6,25 +6,42 @@
 #include "Balloon.h"
 #include "Background.h"
 #include "PullIndicator.h"
-#include "MainMenu.h"
+
 #include "Civilian.h"
+
+#include "MainMenu.h"
+//#include "Civilian.h"
+
 #include "RMZHelper.h"
+#include "CivFactory.h"
+#include "ArrowBtn.h"
+
 
 using namespace cocos2d;
 
-class HelloWorld : public cocos2d::Layer
+class HelloWorld : Layer
 {
 private:
 	PhysicsWorld* m_World;
 	EventListenerTouchOneByOne* touchListener;
+    
+    
+    
+    // static Scene* scene;
+
+
+	int iTime;
 
 public:
+    
 
 	Player* player;
 	Balloon* balloon;
 	PullIndicator* pull;
-	Civilian* civCivilian;
+	//Civilian* civCivilian;
+	CivFactory* civMaker;
 	Size visibleSize;
+	ArrowBtn* leftBtn, *rightBtn, *downBtn;
 
 	LabelTTF* label;
 
@@ -33,7 +50,11 @@ public:
     Background* bg;
 
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene();
+    
+   //  static Scene* getCurrentScene();
+    
+     static Scene* createScene();
+    
 	void addBalloon(Point pos, Point* force);
 	static void removeBalloon(Balloon* balloon);
 
@@ -51,6 +72,8 @@ public:
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
+    
+    void onBack(Object* sender);
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
