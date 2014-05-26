@@ -24,12 +24,12 @@ class Options : public Layer
 {
 private:
     
-    static Scene* scene;
+    //static Scene* scene;
     
 public:
    
     
-     static Scene* getCurrentScene();
+   //  static Scene* getCurrentScene();
     
      static Scene* createScene();
 

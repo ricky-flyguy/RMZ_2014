@@ -20,6 +20,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 			   ../../Classes/CivFactory.cpp\
 			   ../../Classes/RMZScene.cpp\
 			   ../../Classes/ArrowBtn.cpp\
+			../../Classes/SceneManager.cpp\
 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes

@@ -27,7 +27,7 @@ private:
     
     
     
-     static Scene* scene;
+    // static Scene* scene;
 
 
 	int iTime;
@@ -51,7 +51,7 @@ public:
 
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     
-     static Scene* getCurrentScene();
+   //  static Scene* getCurrentScene();
     
      static Scene* createScene();
     

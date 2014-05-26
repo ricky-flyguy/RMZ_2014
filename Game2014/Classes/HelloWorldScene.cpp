@@ -7,7 +7,7 @@ USING_NS_CC;
 
 Scene* HelloWorld::createScene()
 {
-    scene = NULL;
+    Scene *scene = NULL;
     // 'scene' is an autorelease object
     scene = Scene::createWithPhysics();
 	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
@@ -26,14 +26,14 @@ Scene* HelloWorld::createScene()
     // return the scene
     return scene;
 }
-
+/*
 Scene* HelloWorld::getCurrentScene()
 {
     if(scene != NULL)
     return scene;
 }
 
-
+*/
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
@@ -129,7 +129,7 @@ bool HelloWorld::init()
 	tempPos = ccp(visibleSize.width - visibleSize.width/6, visibleSize.height - visibleSize.height/4);
 
 	downBtn = ArrowBtn::create(&tempPos, ArrowBtn::Type::Down, player);
-	tempPos = ccp(downBtn->getPosition().x - downBtn->getBoundingBox().size.width, downBtn->getPosition().y);
+//	tempPos = ccp(downBtn->getPosition().x - downBtn->getBoundingBox().size.width, downBtn->getPosition().y);
 	leftBtn = ArrowBtn::create(&tempPos, ArrowBtn::Type::Left, player);
 	tempPos = ccp(downBtn->getPosition().x + downBtn->getBoundingBox().size.width, downBtn->getPosition().y);
 	rightBtn = ArrowBtn::create(&tempPos, ArrowBtn::Type::Right, player);

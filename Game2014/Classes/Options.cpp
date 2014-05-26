@@ -18,7 +18,7 @@ using namespace cocos2d;
 
 Scene* Options::createScene()
 {
-    scene = NULL;
+   Scene *scene = NULL;
     
     do {
         
@@ -35,13 +35,13 @@ Scene* Options::createScene()
     
     return scene;
 }
-
+/*
 Scene* Options::getCurrentScene()
 {
     if(scene != NULL)
      return scene;
 }
-
+*/
 bool Options::init()
 {
 
@@ -88,7 +88,7 @@ void Options::onRMZLINK(Object* sender)
     
 }
 
-void RMZScene::onExit(Object* sender)
+void Options::onExit(Object* sender)
 {
 	//Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
 }

@@ -12,8 +12,7 @@
 
 Scene* MainMenu::createScene()
 {
-   scene = NULL;
-    
+    Scene *scene = NULL;    
     do {
         
         scene = Scene::create(); //create the scene
@@ -29,13 +28,13 @@ Scene* MainMenu::createScene()
     
     return scene;
 }
-
+/*
 Scene* MainMenu::getCurrentScene()
 {
     if(scene != NULL)
         return scene;
 }
- 
+ */
 
 bool MainMenu::init()
 {
