@@ -10,6 +10,7 @@
 
 #include "HighScore.h"
 #include "MainMenu.h"
+#include "SceneManager.h"
 
 Scene* HighScore::createScene()
 {
@@ -68,5 +69,5 @@ bool HighScore::init()
 
 void HighScore::onExit(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
+    SceneManager::sceneMgr()->changeScene(0);
 }

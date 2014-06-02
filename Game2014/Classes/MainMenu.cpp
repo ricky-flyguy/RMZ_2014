@@ -78,27 +78,27 @@ bool MainMenu::init()
 
 void MainMenu::onPlay(Object* Sender)
 {
-    SceneManager::sceneMgr()->changeScene(1);
+    Director::getInstance()->pushScene(SCREEN_GAME->createScene());
 }
 
 void MainMenu::onOptions(Object* sender)
 {
-      SceneManager::sceneMgr()->changeScene(2);
+      SceneManager::sceneMgr()->changeScene(1);
 }
 
 void MainMenu::onHighScore(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, HighScore::createScene()));
+    SceneManager::sceneMgr()->changeScene(2);
 }
 
 void MainMenu::onSocial(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Social::createScene()));
+    SceneManager::sceneMgr()->changeScene(3);
 }
 
 void MainMenu::onCredits(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Credits::createScene()));
+    SceneManager::sceneMgr()->changeScene(4);
 }
 
 void MainMenu::onExit(Object* sender)

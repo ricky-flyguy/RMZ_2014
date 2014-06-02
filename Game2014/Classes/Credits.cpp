@@ -10,6 +10,7 @@
 
 #include "Credits.h"
 #include "MainMenu.h"
+#include "SceneManager.h"
 
 Scene* Credits::createScene()
 {
@@ -60,5 +61,5 @@ bool Credits::init()
 
 void Credits::onExit(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
+    SceneManager::sceneMgr()->changeScene(0);
 }

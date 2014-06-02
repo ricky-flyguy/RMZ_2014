@@ -10,6 +10,7 @@
 
 #include "Audio.h"
 #include "Options.h"
+#include "SceneManager.h"
 
 Scene* Audio::createScene()
 {
@@ -60,5 +61,5 @@ bool Audio::init()
 
 void Audio::onExit(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, Options::createScene()));
+    SceneManager::sceneMgr()->changeScene(0);
 }

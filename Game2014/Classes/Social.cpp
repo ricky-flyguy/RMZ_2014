@@ -10,6 +10,7 @@
 
 #include "Social.h"
 #include "MainMenu.h"
+#include "SceneManager.h"
 
 Scene* Social::createScene()
 {
@@ -60,5 +61,5 @@ bool Social::init()
 
 void Social::onExit(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
+    SceneManager::sceneMgr()->changeScene(0);
 }

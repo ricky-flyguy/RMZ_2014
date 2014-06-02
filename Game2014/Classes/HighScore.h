@@ -27,9 +27,9 @@ public:
 
 	//return? getHighScores();
     
-    static Scene* createScene();
+//    static Scene* createScene();
     
-    virtual bool init();
+//    virtual bool init();
 
 	CREATE_FUNC(HighScore);
 };

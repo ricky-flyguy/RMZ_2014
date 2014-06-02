@@ -34,25 +34,35 @@ SceneManager::~SceneManager()
 
 void SceneManager::init()
 {
-    cout << "initing" << endl;
-    SCREEN_MAIN->createScene();
-    SCREEN_GAME->createScene();
-   SCREEN_OPT->createScene();
+    sceneManager = new Scene();
+    
+    sceneManager->addChild(SCREEN_MAIN->createScene(), 0, 0);
+    sceneManager->addChild(SCREEN_OPT->createScene(), -1, 1);
+    sceneManager->addChild(SCREEN_HIGHSCORE->createScene(), -2, 2);
+    sceneManager->addChild(SCREEN_SOCIAL->createScene(), -3, 3);
+    sceneManager->addChild(SCREEN_CREDITS->createScene(), -4, 4);
+    
+    Director::getInstance()->runWithScene(sceneManager->getChildByTag(0)->getScene());
+    
 }
 
 void SceneManager::changeScene(int s)
 {
-   
-
-    
-    if(s == GAME)
-        Director::getInstance()->pushScene(SCREEN_GAME->createScene());
     
     if(s == MAIN_MENU)
-        Director::getInstance()->pushScene(SCREEN_MAIN->createScene());
+        Director::getInstance()->pushScene(sceneManager->getChildByTag(0)->getScene());
     
     if(s == OPTIONS)
-        Director::getInstance()->pushScene(SCREEN_OPT->createScene());
+        Director::getInstance()->pushScene(sceneManager->getChildByTag(1)->getScene());
+    
+    if(s == HIGHSCORE)
+        Director::getInstance()->pushScene(sceneManager->getChildByTag(2)->getScene());
+    
+    if(s == SOCIAL)
+        Director::getInstance()->pushScene(sceneManager->getChildByTag(3)->getScene());
+    
+    if(s == CREDITS)
+        Director::getInstance()->pushScene(sceneManager->getChildByTag(4)->getScene());
     
 }
 

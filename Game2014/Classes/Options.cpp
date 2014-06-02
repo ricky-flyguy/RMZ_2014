@@ -11,7 +11,7 @@
 #include "Options.h"
 #include "MainMenu.h"
 #include "Audio.h"
-
+#include "SceneManager.h"
 
 Scene* Options::createScene()
 {
@@ -72,7 +72,7 @@ bool Options::init()
 
 void Options::onAudio(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInR::create(0.9f, Audio::createScene()));
+    SceneManager::sceneMgr()->changeScene(0);
 }
 
 void Options::onRMZLINK(Object* sender)
@@ -82,6 +82,6 @@ void Options::onRMZLINK(Object* sender)
 
 void Options::onExit(Object* sender)
 {
-	Director::getInstance()->replaceScene(TransitionSlideInL::create(0.9f, MainMenu::createScene()));
+    SceneManager::sceneMgr()->changeScene(0);
 }
 
